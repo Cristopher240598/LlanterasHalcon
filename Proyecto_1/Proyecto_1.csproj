@@ -260,6 +260,26 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\estilos\bootstrap.min.css" />
+    <Content Include="Content\estilos\fonts\fa-brands-400.svg" />
+    <Content Include="Content\estilos\fonts\fa-regular-400.svg" />
+    <Content Include="Content\estilos\fonts\fa-solid-900.svg" />
+    <Content Include="Content\estilos\fonts\font-awesome.min.css" />
+    <Content Include="Content\estilos\fonts\fontawesome-all.min.css" />
+    <Content Include="Content\estilos\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\estilos\fonts\fontawesome5-overrides.min.css" />
+    <Content Include="Content\estilos\styles.min.css" />
+    <Content Include="Content\img\continental.jpg" />
+    <Content Include="Content\img\fondoLlantas.jpeg" />
+    <Content Include="Content\img\general.png" />
+    <Content Include="Content\img\llanta1.jpg" />
+    <Content Include="Content\img\llanta2.jpg" />
+    <Content Include="Content\img\llanta3.jpg" />
+    <Content Include="Content\img\Logo.png" />
+    <Content Include="Content\img\LogoIcono.png" />
+    <Content Include="Content\img\Logo_nombre.png" />
+    <Content Include="Content\img\michelin.jpg" />
+    <Content Include="Content\img\pirelli.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -286,7 +306,27 @@
     <Content Include="Models\Modelo.edmx.diagram">
       <DependentUpon>Modelo.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\estilos\fonts\fa-brands-400.eot" />
+    <Content Include="Content\estilos\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\estilos\fonts\fa-brands-400.woff" />
+    <Content Include="Content\estilos\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\estilos\fonts\fa-regular-400.eot" />
+    <Content Include="Content\estilos\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\estilos\fonts\fa-regular-400.woff" />
+    <Content Include="Content\estilos\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\estilos\fonts\fa-solid-900.eot" />
+    <Content Include="Content\estilos\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\estilos\fonts\fa-solid-900.woff" />
+    <Content Include="Content\estilos\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\estilos\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\estilos\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\estilos\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\estilos\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\estilos\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\estilos\bootstrap.min.js" />
+    <Content Include="Scripts\estilos\jquery.min.js" />
+    <Content Include="Scripts\estilos\script.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -331,6 +371,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutCompras.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
