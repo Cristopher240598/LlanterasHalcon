@@ -13,5 +13,8 @@ namespace Proyecto_1.Controllers
         {
             return View();
         }
+        
+        private void test(){
+        }
     }
 }
