@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7605d6728bd466fb0b8a05e15b21648" Name="Diagram1">
+        <EntityTypeShape EntityType="LlanteraModel.categorias" Width="1.5" PointX="9.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.compras" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.detallesCompras" Width="1.5" PointX="2" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.detallesVentas" Width="1.5" PointX="2.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.envios" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.llantas" Width="1.5" PointX="6.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.marcas" Width="1.5" PointX="9" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.paqueterias" Width="1.5" PointX="0.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.proveedores" Width="1.5" PointX="9.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.roles" Width="1.5" PointX="9.625" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.subcategorias" Width="1.5" PointX="9.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.usuarios" Width="1.5" PointX="6.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="LlanteraModel.ventas" Width="1.5" PointX="5.75" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="LlanteraModel.FK__subcatego__id_ca__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__compras__id_prov__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__detallesC__id_co__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__detallesC__id_ll__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__detallesV__id_ll__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__detallesV__id_ve__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__envios__id_paque__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__envios__id_venta__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__llantas__id_marc__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__llantas__id_prov__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__llantas__id_subc__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__usuarios__id_rol__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="LlanteraModel.FK__ventas__id_usuar__1AD3FDA4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
