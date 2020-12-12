@@ -11,7 +11,6 @@ namespace Proyecto_1.Controllers
         public ActionResult Index()
         {
             return View();
-            //S
         }
 
         public ActionResult About()

@@ -1,0 +1,112 @@
+a, a:hover {
+    color: #ff4c01 !important
+}
+
+.opciones {
+    color: #000 !important
+}
+
+.imagen-logo {
+    width: 105px;
+    margin: 5px
+}
+
+.nombre-empresa {
+    color: #03f !important;
+    font-size: 25px !important
+}
+
+.texto-index {
+    font-size: 20px
+}
+
+.icono-inicio {
+    color: #ff4c01
+}
+
+.valor-columna {
+    padding: 40px
+}
+
+    .valor-columna h4 {
+        margin-top: 20px
+    }
+
+.tipo-letra {
+    font-family: Montserrat,sans-serif !important
+}
+
+.tamanio-icono {
+    font-size: 16px;
+    padding-right: 5px
+}
+
+body {
+    display: flex;
+    flex-direction: column
+}
+
+.principal {
+    flex: 1 0 auto !important
+}
+
+body, html {
+    width: 100%;
+    height: 100%
+}
+
+.opc-admin {
+    background-color: #f8f9fa;
+    color: #03f !important;
+    text-decoration: none !important
+}
+
+.opcs-admin {
+    border: 0 !important
+}
+
+.borde-opcs-admin {
+    border: 0
+}
+
+.div1-admin {
+    min-width: 148px;
+    width: 13%;
+    padding-top: 133px
+}
+
+.div2-admin {
+    width: 87%;
+    padding-top: 0
+}
+
+.items-opcs {
+    padding: 5px 0 5px 15px
+}
+
+.item-opc {
+    padding-top: 5px
+}
+
+.link-item {
+    color: #03f !important;
+    text-decoration: none !important
+}
+
+.boton {
+    color: white;
+    background-color: rgb(255,76,1)!important;
+}
+
+.boton:hover
+{
+    color: white;
+}
+
+footer {
+    border-top-width: 1px;
+    border-top-style: solid;
+    height: 60px;
+    padding: 10px
+}
+
