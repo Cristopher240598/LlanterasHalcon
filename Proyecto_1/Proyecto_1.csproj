@@ -191,8 +191,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\categoriasController.cs" />
+    <Compile Include="Controllers\CompradorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\paqueteriasController.cs" />
+    <Compile Include="Controllers\subcategoriasController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -327,6 +333,7 @@
     <Content Include="Scripts\estilos\bootstrap.min.js" />
     <Content Include="Scripts\estilos\jquery.min.js" />
     <Content Include="Scripts\estilos\script.min.js" />
+    <Content Include="Scripts\estilos\script1.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -373,6 +380,29 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_LayoutCompras.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial1.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\paqueterias\Create.cshtml" />
+    <Content Include="Views\paqueterias\Delete.cshtml" />
+    <Content Include="Views\paqueterias\Details.cshtml" />
+    <Content Include="Views\paqueterias\Edit.cshtml" />
+    <Content Include="Views\paqueterias\Index.cshtml" />
+    <Content Include="Views\Comprador\Index.cshtml" />
+    <Content Include="Views\categorias\Create.cshtml" />
+    <Content Include="Views\categorias\Delete.cshtml" />
+    <Content Include="Views\categorias\Details.cshtml" />
+    <Content Include="Views\categorias\Edit.cshtml" />
+    <Content Include="Views\categorias\Index.cshtml" />
+    <Content Include="Views\subcategorias\Create.cshtml" />
+    <Content Include="Views\subcategorias\Delete.cshtml" />
+    <Content Include="Views\subcategorias\Details.cshtml" />
+    <Content Include="Views\subcategorias\Edit.cshtml" />
+    <Content Include="Views\subcategorias\Index.cshtml" />
+    <Content Include="Views\llantas\Create.cshtml" />
+    <Content Include="Views\llantas\Delete.cshtml" />
+    <Content Include="Views\llantas\Details.cshtml" />
+    <Content Include="Views\llantas\Edit.cshtml" />
+    <Content Include="Views\llantas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

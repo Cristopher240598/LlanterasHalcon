@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Proyecto_1.Models.paqueterias>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Paqueterías</h2>
+
+<p style="margin-top:20px; margin-bottom:40px;">
+    @Html.ActionLink("Crear paquetería", "Create", new { id = "" }, new { @class = "link-item" })
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Página web
+        </th>
+        <th>
+            Teléfono
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.web)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "link-item" }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "link-item" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "link-item" })
+            </td>
+        </tr>
+    }
+
+</table>
+

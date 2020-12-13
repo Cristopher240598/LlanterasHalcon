@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Proyecto_1.Models.categorias>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Categorías</h2>
+
+<p style="margin-top:20px; margin-bottom:40px;">
+    @Html.ActionLink("Crear categoría", "Create", new { id = "" }, new { @class = "link-item" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Descripción
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "link-item" }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "link-item" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "link-item" })
+            </td>
+        </tr>
+    }
+
+</table>
