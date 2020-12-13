@@ -26,5 +26,11 @@ namespace Proyecto_1.Controllers
 
             return View();
         }
+
+        public ActionResult catalogo()
+        {
+            return View();
+        }
+
     }
 }

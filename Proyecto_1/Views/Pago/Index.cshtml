@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main >
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="section-heading">Pago</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-left">
+                            <p>Cliente: </p>
+                            <p>Dirección de entrega:</p>
+                            <p>Fecha:</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table ">
+                                    <thead>
+                                        <tr class="info">
+                                            <th>Nombre</th>
+                                            <th>Foto</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td>MXD</td>
+                                        <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                        <td>$800.00</td>
+                                        <td>1</td>
+                                        <td>$800.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MXD</td>
+                                        <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                        <td>$800.00</td>
+                                        <td>1</td>
+                                        <td>$800.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MXD</td>
+                                        <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                        <td>$800.00</td>
+                                        <td>1</td>
+                                        <td>$800.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" colspan="4">Total:</td>
+                                        <td>$2400.00</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <p>Pagar con tarjeta</p>
+                            <img src="~/Content/img/masterd.png" height="30"/>
+                        </div>
+                        <div class="col col-md-4">
+                            <p>Pagar con PayPal</p>
+                            <img src="~/Content/img/paypal.png" height="30" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

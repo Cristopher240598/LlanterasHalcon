@@ -31,12 +31,9 @@
                         @Html.ActionLink("Nosotros", "About", "Home", new { @class = "nav-link js-scroll-trigger opciones" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger opciones" href="">Llantas</a>
+                        @Html.ActionLink("Llantas", "catalogo", "Home", new { @class = "nav-link js-scroll-trigger opciones" })
                     </li>
                     @Html.Partial("_LoginPartial")
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger opciones" href=""><i class="tamanio-icono fa fa-shopping-cart"></i>(0)</a>
-                    </li>
                 </ul>
             </div>
         </div>

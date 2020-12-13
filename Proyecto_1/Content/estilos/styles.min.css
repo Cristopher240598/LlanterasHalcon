@@ -94,13 +94,13 @@ body, html {
 }
 
 .boton {
-    color: white;
+    color: white!important;
     background-color: rgb(255,76,1)!important;
 }
 
 .boton:hover
 {
-    color: white;
+    color: white!important;
 }
 
 footer {
@@ -109,4 +109,3 @@ footer {
     height: 60px;
     padding: 10px
 }
-

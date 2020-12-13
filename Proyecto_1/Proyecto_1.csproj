@@ -192,11 +192,16 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CarroController.cs" />
+    <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\categoriasController.cs" />
     <Compile Include="Controllers\CompradorController.cs" />
+    <Compile Include="Controllers\detallesComprasController.cs" />
+    <Compile Include="Controllers\enviosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
     <Compile Include="Controllers\subcategoriasController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -284,7 +289,9 @@
     <Content Include="Content\img\Logo.png" />
     <Content Include="Content\img\LogoIcono.png" />
     <Content Include="Content\img\Logo_nombre.png" />
+    <Content Include="Content\img\masterd.png" />
     <Content Include="Content\img\michelin.jpg" />
+    <Content Include="Content\img\paypal.png" />
     <Content Include="Content\img\pirelli.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -380,7 +387,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Shared\_LayoutCompras.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial1.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\paqueterias\Create.cshtml" />
     <Content Include="Views\paqueterias\Delete.cshtml" />
@@ -403,6 +409,21 @@
     <Content Include="Views\llantas\Details.cshtml" />
     <Content Include="Views\llantas\Edit.cshtml" />
     <Content Include="Views\llantas\Index.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial1.cshtml" />
+    <Content Include="Views\Catalogo\Index.cshtml" />
+    <Content Include="Views\Home\catalogo.cshtml" />
+    <Content Include="Views\envios\Create.cshtml" />
+    <Content Include="Views\envios\Delete.cshtml" />
+    <Content Include="Views\envios\Details.cshtml" />
+    <Content Include="Views\envios\Edit.cshtml" />
+    <Content Include="Views\envios\Index.cshtml" />
+    <Content Include="Views\Carro\Index.cshtml" />
+    <Content Include="Views\Pago\Index.cshtml" />
+    <Content Include="Views\detallesCompras\Create.cshtml" />
+    <Content Include="Views\detallesCompras\Delete.cshtml" />
+    <Content Include="Views\detallesCompras\Details.cshtml" />
+    <Content Include="Views\detallesCompras\Edit.cshtml" />
+    <Content Include="Views\detallesCompras\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
