@@ -79,7 +79,8 @@ namespace Proyecto_1.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    string correo = model.Email;
+                    return RedirectToAction("Index", "Usuario", routeValues: new { email = correo });
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -156,14 +157,20 @@ namespace Proyecto_1.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar correo electrónico con este vínculo
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
-
-                    return RedirectToAction("Index", "Home");
+                    bool dominio = user.Email.ToString().Contains("@llanterasHalcon.com");
+                    if (dominio)
+                    {
+                        string correo = model.Email;
+                        return RedirectToAction("Index", "Usuario", routeValues: new { email = correo });
+                    }
+                    else
+                        return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }

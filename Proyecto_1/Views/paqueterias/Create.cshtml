@@ -1,0 +1,45 @@
+﻿@model Proyecto_1.Models.paqueterias
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Crear paquetería</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group text-left">
+            <label>Nombre:</label>
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group text-left">
+            <label>Página web:</label>
+
+            @Html.EditorFor(model => model.web, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.web, "", new { @class = "text-danger" })
+
+        </div>
+
+        <div class="form-group text-left">
+            <label>Teléfono:</label>
+            @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Agregar" class="btn boton" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Ver paqueterías", "Index", new { id = "" }, new { @class = "link-item" })
+</div>

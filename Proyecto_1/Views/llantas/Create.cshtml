@@ -1,0 +1,126 @@
+﻿@model Proyecto_1.Models.llantas
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Crear llanta</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group text-left">
+                    <label>Modelo:</label>
+                    @Html.EditorFor(model => model.modelo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.modelo, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Descripción:</label>
+                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Rin:</label>
+                    @Html.EditorFor(model => model.rin, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.rin, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Ancho:</label>
+                    @Html.EditorFor(model => model.ancho, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ancho, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Perfil:</label>
+                    @Html.EditorFor(model => model.perfil, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.perfil, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group text-left">
+                    <label>Carga:</label>
+                    @Html.EditorFor(model => model.carga, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.carga, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Imagen:</label>
+                    <input type="file" />
+                    @*Html.EditorFor(model => model.imagen, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @*Html.ValidationMessageFor(model => model.imagen, "", new { @class = "text-danger" })*@
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Stock:</label>
+                    @Html.EditorFor(model => model.stock, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })
+                </div>
+
+                @*<div class="form-group text-left">
+        <label>Existencia:</label>
+        @Html.EditorFor(model => model.existencia, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.existencia, "", new { @class = "text-danger" })
+    </div>*@
+            </div>
+
+            <div class="col">
+                <div class="form-group text-left">
+                    <label>Precio de venta:</label>
+                    @Html.EditorFor(model => model.precioVenta, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.precioVenta, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Precio de compra:</label>
+                    @Html.EditorFor(model => model.precioCompra, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.precioCompra, "", new { @class = "text-danger" })
+                </div>
+
+                @*
+                    <div class="form-group text-left">
+
+                            @Html.EditorFor(model => model.ultActualizacion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ultActualizacion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <div class="form-group text-left">
+                    <label>Proveedor:</label>
+                    @Html.DropDownList("id_proveedor", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_proveedor, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Subcategoría:</label>
+                    @Html.DropDownList("id_subcategoria", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_subcategoria, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
+                    <label>Marca:</label>
+                    @Html.DropDownList("id_marca", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.id_marca, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Agregar" class="btn boton" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Ver llantas", "Index", new { id = "" }, new { @class = "link-item" })
+</div>

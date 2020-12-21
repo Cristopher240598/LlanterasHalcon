@@ -1,0 +1,59 @@
+﻿@model Proyecto_1.Models.detallesCompras
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>detallesCompras</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioVenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioVenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compras.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compras.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.llantas.modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.llantas.modelo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

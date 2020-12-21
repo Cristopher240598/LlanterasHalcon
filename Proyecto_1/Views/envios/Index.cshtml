@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Proyecto_1.Models.envios>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Envíos</h2>
+
+<p style="margin-top:20px; margin-bottom:40px;">
+    @Html.ActionLink("Crear envío", "Create", new { id = "" }, new { @class = "link-item" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Fecha de creación
+        </th>
+        <th>
+            Fecha de última actualización
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Paquetería
+        </th>
+        <th>
+            No. de venta
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+    @*@foreach (var item in Model)
+    {*@
+        <tr>
+            <td>
+                04/05/2020
+                @*@Html.DisplayFor(modelItem => item.fechaCreacion)*@
+            </td>
+            <td>
+                06/05/2020
+                @*@Html.DisplayFor(modelItem => item.fechaEnvio)*@
+            </td>
+            <td>
+                En ruta de entrega
+                @*@Html.DisplayFor(modelItem => item.estado)*@
+            </td>
+            <td>
+                DHL
+                @*@Html.DisplayFor(modelItem => item.paqueterias.nombre)*@
+            </td>
+            <td>
+                NV21
+                @*@Html.DisplayFor(modelItem => item.ventas.Id)*@
+            </td>
+            <td>
+                <a class="link-item">Editar</a>|<a class="link-item">Detalles</a>|<a class="link-item">Eliminar</a>
+                @*
+                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    @*}*@
+
+</table>

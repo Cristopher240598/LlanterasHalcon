@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main style="min-height:900px;">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="section-heading">Carrito</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="table-responsive">
+                                <table class="table ">
+                                    <thead>
+                                        <tr class="info">
+                                            <th>Opción</th>
+                                            <th>Modelo</th>
+                                            <th>Foto</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th>Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tr>
+                                        <td><a class="link-item">Quitar</a></td>
+                                        <td>MXD</td>
+                                        <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                        <td>$800.00</td>
+                                        <td>1</td>
+                                        <td>$800.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="link-item">Quitar</a></td>
+                                        <td>MXD</td>
+                                        <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                        <td>$800.00</td>
+                                        <td>1</td>
+                                        <td>$800.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a class="link-item">Quitar</a></td>
+                                        <td>MXD</td>
+                                        <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                        <td>$800.00</td>
+                                        <td>1</td>
+                                        <td>$800.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" colspan="5">Total:</td>
+                                        <td>$2400.00</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <a class="btn btn-info" style="color:white!important;" href=@Url.Action("Index","Home")>Seguir comprando</a>
+                        </div>
+                        <div class="col col-md-4" style="color:white!important;">
+                            @Html.ActionLink("Confirmar orden", "Index", "Pago", new { area = " " }, new { @class = "btn boton" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

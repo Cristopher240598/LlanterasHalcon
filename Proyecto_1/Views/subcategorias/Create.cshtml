@@ -1,0 +1,43 @@
+﻿@model Proyecto_1.Models.subcategorias
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Crear subcategoría</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group text-left">
+            <label>Nombre:</label>
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group text-left">
+            <label>Descripción:</label>
+            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group text-left">
+            <label>Categoría:</label>
+            @Html.DropDownList("id_categoria", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_categoria, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Agregar" class="btn boton" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Ver subcategorías", "Index", new { id = "" }, new { @class = "link-item" })
+</div>

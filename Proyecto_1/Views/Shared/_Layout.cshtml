@@ -1,45 +1,53 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+    <title>LlanterasHalcón</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/estilos/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/estilos/styles.min.css">
+    <link rel="stylesheet" href="~/Content/estilos/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Content/estilos/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/estilos/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+    <link rel="icon" type="image/png" sizes="512x512" href="~/Content/img/LogoIcono.png">
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+<body id="page-top">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-light" id="mainNav">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+            <img class="imagen-logo" src="~/Content/img/Logo.png" />
+            @Html.ActionLink("Llanteras Halcón", "Index", "Home", new { area = "" }, new { @class = "navbar-brand nombre-empresa tipo-letra" })
+            <button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto text-uppercase">
+                    <li class="nav-item">
+                        @Html.ActionLink("Nosotros", "About", "Home", new { @class = "nav-link js-scroll-trigger opciones" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Llantas", "catalogo", "Home", new { @class = "nav-link js-scroll-trigger opciones" })
+                    </li>
+                    @Html.Partial("_LoginPartial")
                 </ul>
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
-        </footer>
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    </nav>
+    @RenderBody()
+    <footer style="text-shadow: 0px 0px;">
+        <div class="container">
+            <span class="copyright">Copyright&nbsp;© Llanteras Halcón @DateTime.Now.Year</span>
+        </div>
+    </footer>
+    <script src="~/Scripts/estilos/jquery.min.js"></script>
+    <script src="~/Scripts/estilos/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="~/Scripts/estilos/script.min.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

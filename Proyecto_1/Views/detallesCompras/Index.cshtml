@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Proyecto_1.Models.detallesCompras>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+}
+
+<h2>Compras</h2>
+
+<p>
+    @Html.ActionLink("Crear compra", "Create", new { id = "" }, new { @class = "link-item" })
+</p>
+
+@*
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precioCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precioVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.compras.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.llantas.modelo)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.compras.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.llantas.modelo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>
+*@
+<table class="table">
+    <tr>
+        <th>
+            Modelo
+        </th>
+        <th>
+            Categoría
+        </th>
+        <th>
+            Subcategoría
+        </th>
+        <th>
+           Existencia
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            Última compra
+        </th>
+        <th>
+            Total
+        </th>
+    </tr>
+    <tr>
+        <td>
+            MXD
+        </td>
+        <td>
+            Autos y camionetas
+        </td>
+        <td>
+            Auto de pasajeros
+        </td>
+        <td>
+            10
+        </td>
+        <td>
+            5
+        </td>
+        <td>
+            04/11/2020
+        </td>
+        <td>
+            $50000.00
+        </td>
+    </tr>
+</table>
