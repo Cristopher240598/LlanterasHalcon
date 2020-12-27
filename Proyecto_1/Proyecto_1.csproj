@@ -204,6 +204,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
+    <Compile Include="Controllers\ProvedoresController.cs" />
     <Compile Include="Controllers\subcategoriasController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -426,6 +427,11 @@
     <Content Include="Views\detallesCompras\Details.cshtml" />
     <Content Include="Views\detallesCompras\Edit.cshtml" />
     <Content Include="Views\detallesCompras\Index.cshtml" />
+    <Content Include="Views\Provedores\Index.cshtml" />
+    <Content Include="Views\Provedores\Create.cshtml" />
+    <Content Include="Views\Provedores\Details.cshtml" />
+    <Content Include="Views\Provedores\Edit.cshtml" />
+    <Content Include="Views\Provedores\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
