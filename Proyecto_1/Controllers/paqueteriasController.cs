@@ -40,7 +40,7 @@ namespace Proyecto_1.Controllers
         {
             return View();
         }
-
+        //ejeemplo 
         // POST: paqueterias/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
