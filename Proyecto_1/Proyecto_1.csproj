@@ -202,6 +202,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\marcasController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
     <Compile Include="Controllers\ProvedoresController.cs" />
@@ -432,6 +433,11 @@
     <Content Include="Views\Provedores\Details.cshtml" />
     <Content Include="Views\Provedores\Edit.cshtml" />
     <Content Include="Views\Provedores\Delete.cshtml" />
+    <Content Include="Views\marcas\Create.cshtml" />
+    <Content Include="Views\marcas\Delete.cshtml" />
+    <Content Include="Views\marcas\Details.cshtml" />
+    <Content Include="Views\marcas\Edit.cshtml" />
+    <Content Include="Views\marcas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
