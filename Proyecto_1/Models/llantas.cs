@@ -11,8 +11,7 @@ namespace Proyecto_1.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class llantas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,24 +22,16 @@ namespace Proyecto_1.Models
         }
     
         public int Id { get; set; }
-        [Required(ErrorMessage = "Ingrese el modelo")]
         public string modelo { get; set; }
-        [Required(ErrorMessage = "Ingrese la descripción")]
         public string descripcion { get; set; }
-        [Required(ErrorMessage = "Ingrese el rin")]
         public int rin { get; set; }
-        [Required(ErrorMessage = "Ingrese el ancho")]
         public int ancho { get; set; }
-        [Required(ErrorMessage = "Ingrese el perfil")]
         public int perfil { get; set; }
-        [Required(ErrorMessage = "Ingrese la carga")]
         public int carga { get; set; }
         public string imagen { get; set; }
         public int stock { get; set; }
         public int existencia { get; set; }
-        [Required(ErrorMessage = "Ingrese el precio de venta")]
         public decimal precioVenta { get; set; }
-        [Required(ErrorMessage = "Ingrese el precio de compra")]
         public decimal precioCompra { get; set; }
         public System.DateTime ultActualizacion { get; set; }
         public int id_proveedor { get; set; }
