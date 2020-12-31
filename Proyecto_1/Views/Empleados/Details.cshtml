@@ -1,0 +1,118 @@
+﻿@model Proyecto_1.Models.usuarios
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Detalles del empleado</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="row">
+            <div class="col text-left">
+                <dt>
+                    Nombre
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nombre)
+                </dd>
+
+                <dt>
+                    Apellido paterno
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.apellidoPaterno)
+                </dd>
+
+                <dt>
+                    Apellido materno
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.apellidoMaterno)
+                </dd>
+
+                <dt>
+                    Teléfono
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.telefono)
+                </dd>
+
+                <dt>
+                    Correo electrónico
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.correoElectronico)
+                </dd>
+
+                <dt>
+                    Estado
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.estado)
+                </dd>
+            </div>
+            <div class="col text-left">
+                <dt>
+                    Municipio
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.municipio)
+                </dd>
+
+                <dt>
+                    Colonia
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.colonia)
+                </dd>
+
+                <dt>
+                    Calle
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.calle)
+                </dd>
+
+                <dt>
+                    Número de casa
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.numeroCasa)
+                </dd>
+
+                <dt>
+                    C.P.
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.cp)
+                </dd>
+
+                <dt>
+                    Puesto
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.roles.nombre)
+                </dd>
+            </div>
+        </div>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "link-item" }) |
+    @Html.ActionLink("Ver empleados", "Index", new { id = "" }, new { @class = "link-item" })
+</p>
