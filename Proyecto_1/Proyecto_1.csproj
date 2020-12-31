@@ -197,6 +197,7 @@
     <Compile Include="Controllers\categoriasController.cs" />
     <Compile Include="Controllers\CompradorController.cs" />
     <Compile Include="Controllers\detallesComprasController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\enviosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
@@ -424,9 +425,15 @@
     <Content Include="Views\detallesCompras\Details.cshtml" />
     <Content Include="Views\detallesCompras\Edit.cshtml" />
     <Content Include="Views\detallesCompras\Index.cshtml" />
+    <Content Include="Views\Empleados\Create.cshtml" />
+    <Content Include="Views\Empleados\Delete.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\llantas\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>

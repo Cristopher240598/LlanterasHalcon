@@ -2,138 +2,142 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";    
 }
 
-<h2>Details</h2>
+<h2>Detalles de la llanta</h2>
 
 <div>
-    <h4>llantas</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.modelo)
-        </dt>
+        <div class="row" style="width:700px;">
+            <div class="col text-left">
+                <dt>
+                    Modelo
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.modelo)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.modelo)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
-        </dt>
+                <dt>
+                    Descripción
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.descripcion)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.descripcion)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.rin)
-        </dt>
+                <dt>
+                    Rin
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.rin)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.rin)"
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ancho)
-        </dt>
+                <dt>
+                    Ancho
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ancho)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.ancho)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.perfil)
-        </dt>
+                <dt>
+                    Perfil
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.perfil)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.perfil)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.carga)
-        </dt>
+                <dt>
+                    Carga
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.carga)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.carga)
+                </dd>
+            </div>
+            <div class="col text-left">
+                <dt>
+                    Imagen
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.imagen)
-        </dt>
+                <dd>
+                    <img style="margin:14px 0px;" class="border" src="~/Imagenes/llantas/@ViewData["imagenL"]" width="165" />
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.imagen)
-        </dd>
+                <dt>
+                    Stock
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.stock)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.stock)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.stock)
-        </dd>
+                <dt>
+                    Existencia
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.existencia)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.existencia)
+                </dd>
+            </div>
+            <div class="col text-left">
+                <dt>
+                    Precio de venta
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.existencia)
-        </dd>
+                <dd>
+                    $@Html.DisplayFor(model => model.precioVenta)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.precioVenta)
-        </dt>
+                <dt>
+                    Precio de compra
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.precioVenta)
-        </dd>
+                <dd>
+                    $@Html.DisplayFor(model => model.precioCompra)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.precioCompra)
-        </dt>
+                <dt>
+                    Última actualización
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.precioCompra)
-        </dd>
+                <dd>
+                    @ViewData["fechaUlt"]
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ultActualizacion)
-        </dt>
+                <dt>
+                    Marca
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ultActualizacion)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.marcas.nombre)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.marcas.nombre)
-        </dt>
+                <dt>
+                    Proveedor
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.marcas.nombre)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.proveedores.razonSocial)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.proveedores.razonSocial)
-        </dt>
+                <dt>
+                    Subcategoría
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.proveedores.razonSocial)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.subcategorias.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.subcategorias.nombre)
-        </dd>
-
+                <dd>
+                    @Html.DisplayFor(model => model.subcategorias.nombre)
+                </dd>
+            </div>
+        </div>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "link-item" }) |
+    @Html.ActionLink("Ver llantas", "Index", new { id = Model.Id }, new { @class = "link-item" })
 </p>
