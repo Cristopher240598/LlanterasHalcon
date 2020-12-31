@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Proyecto_1.Models;
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -42,43 +43,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">productos más vendidos</h2>
+                    <h2 class="text-uppercase section-heading">Productos más vendidos</h2>
                 </div>
             </div>
             <div class="row text-center">
+               @{ int aux = -1;}
+               @foreach (llantas llanta in ViewBag.llantasMasVendidas)
+               {
+                aux++;
                 <div class="col col-md-4 valor-columna">
                     <span class="fa-stack fa-4x" style="width: 100%;">
                         <img src="~/Content/img/llanta1.jpg" style="height: 100%;">
                     </span>
-                    <h4 class="section-heading" style="font-size: 20px;">Llanta MXDS</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Autos y camionetas</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Michelin</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Rin 14</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Ancho 124cm</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">$800.00</h4><button class="btn btn-primary" type="button" style="background: rgb(255,76,1);">Comprar</button>
+                    <h4 class="section-heading" style="font-size: 20px;">Modelo: @llanta.modelo</h4>
+                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Ventas: @ViewBag.llantasVentas[aux]</h4>
+                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Subcategoría: @llanta.subcategorias.nombre</h4>
+                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Marca: @llanta.marcas.nombre</h4>
+                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Rin: @llanta.rin</h4>
+                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Ancho: @llanta.ancho cm</h4>
+                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Precio: $@llanta.precioVenta</h4><button class="btn btn-primary" type="button" style="background: rgb(255,76,1);">Comprar</button>
                 </div>
-                <div class="col col-md-4 valor-columna">
-                    <span class="fa-stack fa-4x" style="width: 100%;">
-                        <img src="~/Content/img/llanta2.jpg" style="height: 100%;">
-                    </span>
-                    <h4 class="section-heading" style="font-size: 20px;">Llanta MXDS</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Autos y camionetas</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Pirelli</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Rin 15</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Ancho 130cm</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">$800.00</h4><button class="btn btn-primary" type="button" style="background: rgb(255,76,1);">Comprar</button>
-                </div>
-                <div class="col col-md-4 valor-columna">
-                    <span class="fa-stack fa-4x" style="width: 100%;">
-                        <img src="~/Content/img/llanta3.jpg" style="height: 100%;">
-                    </span>
-                    <h4 class="section-heading" style="font-size: 20px;">Llanta MXDS</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Autos y camionetas</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Continental</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Rin 15</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Ancho 130cm</h4>
-                    <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">$900.00</h4><button class="btn btn-primary" type="button" style="background: rgb(255,76,1);">Comprar</button>
-                </div>
+                }
             </div>
         </div>
     </section>

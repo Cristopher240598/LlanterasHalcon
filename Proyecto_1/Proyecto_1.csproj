@@ -226,6 +226,7 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LlantaContador.cs" />
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
