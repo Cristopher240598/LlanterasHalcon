@@ -19,6 +19,7 @@ namespace Proyecto_1.Controllers
                                 select v;
             var ventas = ventasQuery.ToList();
             lista = new List<LlantaContador>();
+            int aux = 0;
             //Organizar por id de llanta y sus ventas de cada una
             foreach (detallesVentas dVenta in ventas)
             {
