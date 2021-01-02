@@ -198,12 +198,14 @@
     <Compile Include="Controllers\categoriasController.cs" />
     <Compile Include="Controllers\CompradorController.cs" />
     <Compile Include="Controllers\detallesComprasController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\enviosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
+    <Compile Include="Controllers\ProvedoresController.cs" />
     <Compile Include="Controllers\subcategoriasController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -427,6 +429,16 @@
     <Content Include="Views\detallesCompras\Details.cshtml" />
     <Content Include="Views\detallesCompras\Edit.cshtml" />
     <Content Include="Views\detallesCompras\Index.cshtml" />
+    <Content Include="Views\Provedores\Index.cshtml" />
+    <Content Include="Views\Provedores\Create.cshtml" />
+    <Content Include="Views\Provedores\Details.cshtml" />
+    <Content Include="Views\Provedores\Edit.cshtml" />
+    <Content Include="Views\Provedores\Delete.cshtml" />
+    <Content Include="Views\Empleados\Create.cshtml" />
+    <Content Include="Views\Empleados\Delete.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

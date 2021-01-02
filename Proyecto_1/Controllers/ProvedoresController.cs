@@ -10,107 +10,102 @@ using Proyecto_1.Models;
 
 namespace Proyecto_1.Controllers
 {
-    public class paqueteriasController : Controller
+    public class ProvedoresController : Controller
     {
-        private contextLlantera db = new contextLlantera();
 
-        // GET: paqueterias
+        private contextLlantera db = new contextLlantera();
+        // GET: Provedores
         public ActionResult Index()
         {
-            return View(db.paqueterias.ToList());
+            return View(db.proveedores.ToList());
         }
 
-        // GET: paqueterias/Details/5
+        // GET: Provedores/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            paqueterias paqueterias = db.paqueterias.Find(id);
-            if (paqueterias == null)
+            proveedores provedores = db.proveedores.Find(id);
+            if (provedores == null)
             {
                 return HttpNotFound();
             }
-            return View(paqueterias);
+            return View(provedores);
         }
 
-        // GET: paqueterias/Create
+        // GET: Provedores/Create
         public ActionResult Create()
         {
             return View();
         }
-        //ejeemplo ffff
-        // POST: paqueterias/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+
+        // POST: Provedores/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre,web,telefono")] paqueterias paqueterias)
+        public ActionResult Create([Bind(Include = "Id,RazonSocial,rfc,direccion,telefono,correoElectronico")] proveedores provedores)
         {
             if (ModelState.IsValid)
             {
-                db.paqueterias.Add(paqueterias);
+                db.proveedores.Add(provedores);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(paqueterias);
+            return View(provedores);
         }
 
-        // GET: paqueterias/Edit/5
+        // GET: Provedores/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            paqueterias paqueterias = db.paqueterias.Find(id);
-            if (paqueterias == null)
+            proveedores provedores = db.proveedores.Find(id);
+            if (provedores == null)
             {
                 return HttpNotFound();
             }
-            return View(paqueterias);
+            return View(provedores);
         }
 
-        // POST: paqueterias/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Provedores/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre,web,telefono")] paqueterias paqueterias)
+        public ActionResult Edit([Bind(Include = "Id,razonSocial,rfc,direccion,telefono,correoElectronico")] proveedores provedores)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(paqueterias).State = EntityState.Modified;
+                db.Entry(provedores).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(paqueterias);
+            return View(provedores);
         }
 
-        // GET: paqueterias/Delete/5
+        // GET: Provedores/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            paqueterias paqueterias = db.paqueterias.Find(id);
-            if (paqueterias == null)
+            proveedores provedores = db.proveedores.Find(id);
+            if (provedores == null)
             {
                 return HttpNotFound();
             }
-            return View(paqueterias);
+            return View(provedores);
         }
 
-        // POST: paqueterias/Delete/5
+        // POST: Provedores/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            paqueterias paqueterias = db.paqueterias.Find(id);
-            db.paqueterias.Remove(paqueterias);
+            proveedores provedores = db.proveedores.Find(id);
+            db.proveedores.Remove(provedores);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
