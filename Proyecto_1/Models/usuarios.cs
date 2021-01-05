@@ -49,10 +49,14 @@ namespace Proyecto_1.Models
         public Nullable<int> numeroCasa { get; set; }
         [Required(ErrorMessage = "Ingrese el C.P.")]
         public Nullable<int> cp { get; set; }
+        [Range(100000000000,9999999999999999, ErrorMessage = "Debe ser entre 12 y 16 dígitos")]
         public string tarjetaCredito { get; set; }
         public string tipoTarjeta { get; set; }
+        [Range(2000,2050, ErrorMessage = "Ingrese un año válido")]
         public Nullable<int> anio { get; set; }
+        [Range(1, 12, ErrorMessage = "Ingrese un mes válido")]
         public Nullable<int> mes { get; set; }
+        [Range(100,999, ErrorMessage = "Ingrese un CVV válido")]
         public Nullable<int> cvv { get; set; }
         public int id_rol { get; set; }
 
