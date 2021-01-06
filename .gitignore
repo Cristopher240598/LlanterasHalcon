@@ -259,3 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Proyecto_1/Imagenes/llantas/20201231120351-llanta1.jpg
+/Proyecto_1/Imagenes/llantas/20201231121240-llanta2.jpg

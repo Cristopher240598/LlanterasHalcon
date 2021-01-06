@@ -1,41 +1,35 @@
-﻿@model IEnumerable<Proyecto_1.Models.llantas>
+﻿@model IEnumerable<Proyecto_1.Models.usuarios>
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Llantas</h2>
+<h2>Empleados</h2>
 
 <p style="margin-top:20px; margin-bottom:40px;">
-    @Html.ActionLink("Crear llanta", "Create", new { id = "" }, new { @class = "link-item" })
+    @Html.ActionLink("Crear empleado", "Create", new { id = "" }, new { @class = "link-item" })
 </p>
 <div class="table-responsive" style="width:1000px;">
     <table class="table" overflow-y="auto">
         <tr>
             <th>
-                Modelo
+                Apellido paterno
             </th>
             <th>
-                Rin
+                Apellido materno
             </th>
             <th>
-                Ancho
+                Nombre
             </th>
             <th>
-                Stock
+                Teléfono
             </th>
             <th>
-                Existencia
+                Correo electrónico
             </th>
             <th>
-                Precio de venta
-            </th>
-            <th>
-                Marca
-            </th>
-            <th>
-                Subcategoría
+                Puesto
             </th>
             <th>
                 Acciones
@@ -46,28 +40,22 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.modelo)
+                    @Html.DisplayFor(modelItem => item.apellidoPaterno)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.rin)"
+                    @Html.DisplayFor(modelItem => item.apellidoMaterno)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ancho)
+                    @Html.DisplayFor(modelItem => item.nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.stock)
+                    @Html.DisplayFor(modelItem => item.telefono)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.existencia)
+                    @Html.DisplayFor(modelItem => item.correoElectronico)
                 </td>
                 <td>
-                    $@Html.DisplayFor(modelItem => item.precioVenta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.marcas.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.subcategorias.nombre)
+                    @Html.DisplayFor(modelItem => item.roles.nombre)
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "link-item" }) |

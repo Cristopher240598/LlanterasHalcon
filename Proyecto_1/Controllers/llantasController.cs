@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,7 +18,7 @@ namespace Proyecto_1.Controllers
         // GET: llantas
         public ActionResult Index()
         {
-            var llantas = db.llantas.Include(l => l.marcas).Include(l => l.proveedores).Include(l => l.subcategorias);
+            var llantas = db.llantas.OrderBy(l => l.modelo).Include(l => l.marcas).Include(l => l.proveedores).Include(l => l.subcategorias);
             return View(llantas.ToList());
         }
 
@@ -33,6 +34,8 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["imagenL"] = llantas.imagen;
+            ViewData["fechaUlt"] = llantas.ultActualizacion.ToString("dd/MM/yyyy");
             return View(llantas);
         }
 
@@ -50,18 +53,29 @@ namespace Proyecto_1.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,modelo,descripcion,rin,ancho,perfil,carga,imagen,stock,existencia,precioVenta,precioCompra,ultActualizacion,id_proveedor,id_subcategoria,id_marca")] llantas llantas)
+        public ActionResult Create([Bind(Include = "modelo,descripcion,rin,ancho,perfil,carga,stock,precioVenta,precioCompra,id_proveedor,id_subcategoria,id_marca")] llantas llantas, HttpPostedFileBase imagenLlanta)
         {
-            if (ModelState.IsValid)
+            string img = "";
+            if (ModelState.IsValid && imagenLlanta != null && imagenLlanta.ContentLength > 0)
             {
+                string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenLlanta.FileName).ToLower();
+                imagenLlanta.SaveAs(Server.MapPath("~/Imagenes/llantas/" + nombreImagen));
+                img = nombreImagen;
+                llantas.imagen = img;
+                llantas.existencia = 0;
+
+                DateTime hoy = DateTime.Now;
+                llantas.ultActualizacion = hoy;
+
                 db.llantas.Add(llantas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ModelState.AddModelError("mensajeImagen", "Ingrese una imagen");
             ViewBag.id_marca = new SelectList(db.marcas, "Id", "nombre", llantas.id_marca);
             ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial", llantas.id_proveedor);
             ViewBag.id_subcategoria = new SelectList(db.subcategorias, "Id", "nombre", llantas.id_subcategoria);
+
             return View(llantas);
         }
 
@@ -77,6 +91,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["imagenL"] = llantas.imagen;
             ViewBag.id_marca = new SelectList(db.marcas, "Id", "nombre", llantas.id_marca);
             ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial", llantas.id_proveedor);
             ViewBag.id_subcategoria = new SelectList(db.subcategorias, "Id", "nombre", llantas.id_subcategoria);
@@ -88,11 +103,39 @@ namespace Proyecto_1.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,modelo,descripcion,rin,ancho,perfil,carga,imagen,stock,existencia,precioVenta,precioCompra,ultActualizacion,id_proveedor,id_subcategoria,id_marca")] llantas llantas)
+        public ActionResult Edit([Bind(Include = "Id,modelo,descripcion,rin,ancho,perfil,carga,stock,precioVenta,precioCompra,id_proveedor,id_subcategoria,id_marca")] llantas llantas, HttpPostedFileBase imagenLlanta)
         {
+            string img = "";
+            string imgAnterior;
             if (ModelState.IsValid)
             {
-                db.Entry(llantas).State = EntityState.Modified;
+                int id = llantas.Id;
+                var llanta = db.llantas.Find(id);
+                imgAnterior = llanta.imagen;
+                llanta.modelo = llantas.modelo;
+                llanta.descripcion = llantas.descripcion;
+                llanta.rin = llantas.rin;
+                llanta.ancho = llantas.ancho;
+                llanta.perfil = llantas.perfil;
+                llanta.carga = llantas.carga;
+                llanta.stock = llantas.stock;
+                llanta.precioVenta = llantas.precioVenta;
+                llanta.precioCompra = llantas.precioCompra;
+                DateTime hoy = DateTime.Now;
+                llanta.ultActualizacion = hoy;
+                llanta.id_proveedor = llantas.id_proveedor;
+                llanta.id_subcategoria = llantas.id_subcategoria;
+                llanta.id_marca = llantas.id_marca;
+                if (imagenLlanta != null && imagenLlanta.ContentLength > 0)
+                {
+                    string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenLlanta.FileName).ToLower();
+                    imagenLlanta.SaveAs(Server.MapPath("~/Imagenes/llantas/" + nombreImagen));
+                    img = nombreImagen;
+                    llanta.imagen = img;
+                    //Cambiar ruta
+                    //System.IO.File.Delete(Path.Combine(@"C:\Proyecto_1\Imagenes\llantas", llantas.imagen));
+                    System.IO.File.Delete(Path.Combine(@"D:\VS\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -114,6 +157,8 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["imagenL"] = llantas.imagen;
+            ViewData["fechaUlt"] = llantas.ultActualizacion.ToString("dd/MM/yyyy");
             return View(llantas);
         }
 
@@ -123,6 +168,9 @@ namespace Proyecto_1.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             llantas llantas = db.llantas.Find(id);
+            //Cambiar ruta
+            //System.IO.File.Delete(Path.Combine(@"C:\Proyecto_1\Imagenes\llantas", llantas.imagen));
+            System.IO.File.Delete(Path.Combine(@"D:\VS\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
             db.llantas.Remove(llantas);
             db.SaveChanges();
             return RedirectToAction("Index");
