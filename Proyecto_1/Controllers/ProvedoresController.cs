@@ -43,7 +43,7 @@ namespace Proyecto_1.Controllers
 
         // POST: Provedores/Create
         [HttpPost]
-        public ActionResult Create([Bind(Include = "Id,RazonSocial,rfc,direccion,telefono,correoElectronico")] proveedores provedores)
+        public ActionResult Create([Bind(Include = "RazonSocial,rfc,direccion,telefono,correoElectronico")] proveedores provedores)
         {
             if (ModelState.IsValid)
             {

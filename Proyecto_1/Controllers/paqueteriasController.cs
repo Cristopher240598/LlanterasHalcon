@@ -46,7 +46,7 @@ namespace Proyecto_1.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre,web,telefono")] paqueterias paqueterias)
+        public ActionResult Create([Bind(Include = "nombre,web,telefono")] paqueterias paqueterias)
         {
             if (ModelState.IsValid)
             {
