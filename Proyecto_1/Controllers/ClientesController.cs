@@ -191,13 +191,20 @@ namespace Proyecto_1.Controllers
                 DateTime hoy = new DateTime();
                 if (anio >= hoy.Year)
                 {
-                    if (mes > hoy.Month)
+                    if (anio == hoy.Year)
                     {
-                        retorna = true;
+                        if (mes > hoy.Month)
+                        {
+                            retorna = true;
+                        }
+                        else
+                        {
+                            retorna = false;
+                        }
                     }
                     else
                     {
-                        retorna = false;
+                        retorna = true;
                     }
                 }
                 else
