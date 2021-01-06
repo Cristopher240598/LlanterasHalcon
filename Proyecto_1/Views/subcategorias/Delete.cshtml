@@ -7,7 +7,7 @@
 
 <h2>Eliminar</h2>
 
-<h3>¿Seguro quieres elimanar esto?</h3>
+<h3>¿Seguro quieres elimanar esta subcategoria?</h3>
 <div>
     <h4>subcategorias</h4>
     <hr />
@@ -43,7 +43,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Regresar a la lista", "Index")
+            @Html.ActionLink("Regresar a la lista", "Index", new { id = " "}, new { @class = "link-item" })
         </div>
     }
 </div>
