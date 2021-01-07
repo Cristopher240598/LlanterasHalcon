@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -32,6 +34,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["imagenL"] = marcas.imagen;
             return View(marcas);
         }
 
@@ -46,15 +49,23 @@ namespace Proyecto_1.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,nombre,imagen")] marcas marcas)
+        public ActionResult Create([Bind(Include = "nombre")] marcas marcas, HttpPostedFileBase imagenMarca)
         {
-            if (ModelState.IsValid)
+            Debug.WriteLine(imagenMarca.FileName);
+            string img = "";
+            if (ModelState.IsValid && imagenMarca!= null && imagenMarca.ContentLength > 0)
             {
+                string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenMarca.FileName).ToLower();
+                imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
+                img = nombreImagen;
+                marcas.imagen = img;
+
+
                 db.marcas.Add(marcas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ModelState.AddModelError("mensajeImagen", "Ingrese una imagen");
             return View(marcas);
         }
 
@@ -70,6 +81,8 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["imagenL"] = marcas.imagen;
+
             return View(marcas);
         }
 
@@ -78,11 +91,26 @@ namespace Proyecto_1.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre,imagen")] marcas marcas)
+        public ActionResult Edit([Bind(Include = "Id,nombre")] marcas marcas, HttpPostedFileBase imagenMarca)
         {
+            string img = "";
+            string imgAnterior;
             if (ModelState.IsValid)
             {
-                db.Entry(marcas).State = EntityState.Modified;
+                int id = marcas.Id;
+                var marca = db.marcas.Find(id);
+                imgAnterior = marcas.imagen;
+
+                if (imagenMarca != null && imagenMarca.ContentLength > 0)
+                {
+                    string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenMarca.FileName).ToLower();
+                    imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
+                    img = nombreImagen;
+                    marca.imagen = img;
+                    System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", imgAnterior));
+                }
+
+             //   db.Entry(marcas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -101,6 +129,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["imagenL"] = marcas.imagen;
             return View(marcas);
         }
 
@@ -110,6 +139,8 @@ namespace Proyecto_1.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             marcas marcas = db.marcas.Find(id);
+            System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", marcas.imagen));
+            
             db.marcas.Remove(marcas);
             db.SaveChanges();
             return RedirectToAction("Index");
