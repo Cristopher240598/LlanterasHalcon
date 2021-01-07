@@ -196,14 +196,13 @@
     <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\categoriasController.cs" />
-    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CompradorController.cs" />
     <Compile Include="Controllers\detallesComprasController.cs" />
-    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\enviosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\marcasController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
     <Compile Include="Controllers\ProvedoresController.cs" />
@@ -229,7 +228,6 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LlantaContador.cs" />
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -285,7 +283,6 @@
     <Content Include="Content\estilos\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\estilos\fonts\fontawesome5-overrides.min.css" />
     <Content Include="Content\estilos\styles.min.css" />
-    <Content Include="Content\img\american_express.png" />
     <Content Include="Content\img\continental.jpg" />
     <Content Include="Content\img\fondoLlantas.jpeg" />
     <Content Include="Content\img\general.png" />
@@ -295,18 +292,14 @@
     <Content Include="Content\img\Logo.png" />
     <Content Include="Content\img\LogoIcono.png" />
     <Content Include="Content\img\Logo_nombre.png" />
-    <Content Include="Content\img\mastercard.png" />
     <Content Include="Content\img\masterd.png" />
     <Content Include="Content\img\michelin.jpg" />
     <Content Include="Content\img\paypal.png" />
     <Content Include="Content\img\pirelli.png" />
-    <Content Include="Content\img\visa.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\llantas\20201231120351-llanta1.jpg" />
-    <Content Include="Imagenes\llantas\20201231121240-llanta2.jpg" />
     <Content Include="Models\Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -440,20 +433,16 @@
     <Content Include="Views\Provedores\Details.cshtml" />
     <Content Include="Views\Provedores\Edit.cshtml" />
     <Content Include="Views\Provedores\Delete.cshtml" />
-    <Content Include="Views\Empleados\Create.cshtml" />
-    <Content Include="Views\Empleados\Delete.cshtml" />
-    <Content Include="Views\Empleados\Details.cshtml" />
-    <Content Include="Views\Empleados\Edit.cshtml" />
-    <Content Include="Views\Empleados\Index.cshtml" />
-    <Content Include="Views\Clientes\Create.cshtml" />
-    <Content Include="Views\Clientes\Delete.cshtml" />
-    <Content Include="Views\Clientes\Details.cshtml" />
-    <Content Include="Views\Clientes\Edit.cshtml" />
-    <Content Include="Views\Clientes\Index.cshtml" />
-    <Content Include="Views\Clientes\mostrarMensajeInvalida.cshtml" />
+    <Content Include="Views\marcas\Create.cshtml" />
+    <Content Include="Views\marcas\Delete.cshtml" />
+    <Content Include="Views\marcas\Details.cshtml" />
+    <Content Include="Views\marcas\Edit.cshtml" />
+    <Content Include="Views\marcas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\Llantas\" />
+    <Folder Include="Imagenes\Marcas\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
