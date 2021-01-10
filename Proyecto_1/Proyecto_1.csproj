@@ -297,6 +297,7 @@
     <Content Include="Content\img\michelin.jpg" />
     <Content Include="Content\img\paypal.png" />
     <Content Include="Content\img\pirelli.png" />
+    <Content Include="Content\js\jquery-3.5.1.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -439,9 +440,11 @@
     <Content Include="Views\Empleados\Details.cshtml" />
     <Content Include="Views\Empleados\Edit.cshtml" />
     <Content Include="Views\Empleados\Index.cshtml" />
+    <Content Include="Views\Home\Detalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\llantas\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
