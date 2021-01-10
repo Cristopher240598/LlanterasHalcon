@@ -12,19 +12,19 @@ namespace Proyecto_1.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class contextLlantera : DbContext
     {
         public contextLlantera()
             : base("name=contextLlantera")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();            
+            throw new UnintentionalCodeFirstException();
         }
-
+    
         public virtual DbSet<categorias> categorias { get; set; }
         public virtual DbSet<compras> compras { get; set; }
         public virtual DbSet<detallesCompras> detallesCompras { get; set; }
