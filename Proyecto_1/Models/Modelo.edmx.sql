@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 12/21/2020 09:26:56
--- Generated from EDMX file: C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Models\Modelo.edmx
+-- Date Created: 12/31/2020 17:22:47
+-- Generated from EDMX file: C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Models\Modelo.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,6 +17,9 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK__subcatego__id_ca__75A278F5]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[subcategorias] DROP CONSTRAINT [FK__subcatego__id_ca__75A278F5];
+GO
 IF OBJECT_ID(N'[dbo].[FK__compras__id_prov__76969D2E]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[compras] DROP CONSTRAINT [FK__compras__id_prov__76969D2E];
 GO
@@ -46,9 +49,6 @@ IF OBJECT_ID(N'[dbo].[FK__llantas__id_prov__7D439ABD]', 'F') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[FK__llantas__id_subc__7E37BEF6]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[llantas] DROP CONSTRAINT [FK__llantas__id_subc__7E37BEF6];
-GO
-IF OBJECT_ID(N'[dbo].[FK__subcatego__id_ca__75A278F5]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[subcategorias] DROP CONSTRAINT [FK__subcatego__id_ca__75A278F5];
 GO
 IF OBJECT_ID(N'[dbo].[FK__usuarios__id_rol__19DFD96B]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[usuarios] DROP CONSTRAINT [FK__usuarios__id_rol__19DFD96B];

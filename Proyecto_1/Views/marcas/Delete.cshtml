@@ -1,15 +1,15 @@
-﻿@model Proyecto_1.Models.categorias
+﻿@model Proyecto_1.Models.marcas
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
 <h2>Eliminar</h2>
 
-<h3>¿Seguro quieres Eliminar esta categoria?</h3>
+<h3>Estas seguro de eliminar esto?</h3>
 <div>
-    <h4>categorias</h4>
+    <h4>marcas</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -21,11 +21,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.descripcion)
+            @Html.DisplayNameFor(model => model.imagen)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.descripcion)
+            @Html.DisplayFor(model => model.imagen)
         </dd>
 
     </dl>
@@ -34,8 +34,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-default" /> |
-            @Html.ActionLink("Regresar a la lista", "Index", new { id = "" }, new { @class = "link-item" })
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Ver marcas", "Index")
         </div>
     }
 </div>
