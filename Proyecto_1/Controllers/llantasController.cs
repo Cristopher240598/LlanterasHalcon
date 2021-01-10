@@ -133,8 +133,8 @@ namespace Proyecto_1.Controllers
                     img = nombreImagen;
                     llanta.imagen = img;
                     //Cambiar ruta
-                    //System.IO.File.Delete(Path.Combine(@"C:\Proyecto_1\Imagenes\llantas", llantas.imagen));
-                    System.IO.File.Delete(Path.Combine(@"C:\Users\Carlos\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
+                   // System.IO.File.Delete(Path.Combine(@"C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
+                  System.IO.File.Delete(Path.Combine(@"C:\Users\Carlos\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -169,8 +169,8 @@ namespace Proyecto_1.Controllers
         {
             llantas llantas = db.llantas.Find(id);
             //Cambiar ruta
-            //System.IO.File.Delete(Path.Combine(@"C:\Proyecto_1\Imagenes\llantas", llantas.imagen));
-            System.IO.File.Delete(Path.Combine(@"D:\VS\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
+           // System.IO.File.Delete(Path.Combine(@"C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
+            System.IO.File.Delete(Path.Combine(@"C:\Users\Carlos\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
             db.llantas.Remove(llantas);
             db.SaveChanges();
             return RedirectToAction("Index");

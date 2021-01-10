@@ -1,0 +1,142 @@
+﻿@model Proyecto_1.Models.usuarios
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<div class="d-flex justify-content-center principal">
+    <div style="margin-top:150px; width:750px;">
+
+        @using (Html.BeginForm("Create", "Clientes", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h4 class="text-center">REGISTRARSE</h4>
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Apellido paterno:</label>
+                            @Html.EditorFor(model => model.apellidoPaterno, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.apellidoPaterno, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Apellido materno:</label>
+                            @Html.EditorFor(model => model.apellidoMaterno, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.apellidoMaterno, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Teléfono:</label>
+                            @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Estado:</label>
+                            @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Municipio:</label>
+                            @Html.EditorFor(model => model.municipio, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.municipio, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Colonia:</label>
+                            @Html.EditorFor(model => model.colonia, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.colonia, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Calle:</label>
+                            @Html.EditorFor(model => model.calle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.calle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label>Número de casa:</label>
+                            @Html.EditorFor(model => model.numeroCasa, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.numeroCasa, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>C.P.:</label>
+                            @Html.EditorFor(model => model.cp, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cp, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Número de tarjeta de crédito:</label>
+                            @Html.EditorFor(model => model.tarjetaCredito, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.tarjetaCredito, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("mensajeTarjetaCredito", new { @class = "text-danger" })
+                        </div>
+                        @*
+            <div class="form-group">
+                <label>Tipo de tarjeta:</label>
+                @Html.EditorFor(model => model.tipoTarjeta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tipoTarjeta, "", new { @class = "text-danger" })
+            </div>*@
+                        <div class="form-group" style="margin-top:20px;">
+                            <label>Tipo de tarjeta:</label>
+                            <div class="row" style="margin-top:20px; margin-bottom:45px;">
+                                <div class="col-sm-4">
+                                    @Html.RadioButton("tipoTarjeta", "Visa")
+                                    <img class="border" src="~/Content/img/visa.jpg" style="width:70px; margin-left:10px;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.RadioButton("tipoTarjeta", "Masterd")
+                                    <img class="border" src="~/Content/img/mastercard.png" style="width:70px; margin-left:10px;" />
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.RadioButton("tipoTarjeta", "American")
+                                    <img class="border" src="~/Content/img/american_express.png" style="width:70px; margin-left:10px;" />
+                                </div>
+                            </div>
+                            @Html.ValidationMessage("mensajeTipoTarjeta", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Año de la tarjeta:</label>
+                            @Html.EditorFor(model => model.anio, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.anio, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("mensajeAnioTarjeta", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Mes de la tarjeta:</label>
+                            @Html.EditorFor(model => model.mes, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.mes, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("mensajeMesTarjeta", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>CVV:</label>
+                            @Html.EditorFor(model => model.cvv, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.cvv, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("mensajeCVVTarjeta", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group text-center" style="margin-bottom:50px;">
+                    <input type="submit" value="Registrarse" class="btn boton" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -16,21 +16,20 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group text-left">
             <label>Nombre:</label>
-            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "editNombre" } })
             @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group text-left">
             <label>Página web:</label>
-
-            @Html.EditorFor(model => model.web, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.web, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "editPagina" } })
             @Html.ValidationMessageFor(model => model.web, "", new { @class = "text-danger" })
 
         </div>
 
         <div class="form-group text-left">
             <label>Teléfono:</label>
-            @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "editTelefono" } })
             @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
 
         </div>
@@ -43,3 +42,24 @@
 <div>
     @Html.ActionLink("Ver paqueterías", "Index", new { id = "" }, new { @class = "link-item" })
 </div>
+
+<script type="text/javascript">
+    $(this).submit(function (event) {       
+        var nombre = $('#editNombre').val();
+        var pagina = $('#editPagina').val();
+        var telefono = Number($('#editTelefono').val());
+        if (nombre.length >= 3 && nombre.length <= 80) {
+            if (pagina.length >= 8 && pagina.length <= 100) {
+                if (telefono >= 1000000000 && telefono <= 9999999999) {
+                    //Todos los datos están bien
+                } else {
+                    alert('Teléfono inválido. Tamaño: [10]'); event.preventDefault();
+                }
+            } else {
+                alert('Página web inválida. Tamaño: [8,100]'); event.preventDefault();
+            }
+        } else {
+            alert('Nombre inválido. Tamaño: [3,80]'); event.preventDefault();
+        }
+    });
+</script>

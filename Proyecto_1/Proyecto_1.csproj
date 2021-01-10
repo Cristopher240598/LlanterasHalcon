@@ -196,6 +196,7 @@
     <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\categoriasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CompradorController.cs" />
     <Compile Include="Controllers\detallesComprasController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\marcasController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
     <Compile Include="Controllers\ProvedoresController.cs" />
@@ -284,6 +286,14 @@
     <Content Include="Content\estilos\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\estilos\fonts\fontawesome5-overrides.min.css" />
     <Content Include="Content\estilos\styles.min.css" />
+    <Content Include="Content\img\carrusel\admin_01.png" />
+    <Content Include="Content\img\carrusel\admin_02.png" />
+    <Content Include="Content\img\carrusel\admin_03.png" />
+    <Content Include="Content\img\carrusel\admin_04.png" />
+    <Content Include="Content\img\carrusel\comprador_01.png" />
+    <Content Include="Content\img\carrusel\comprador_02.png" />
+    <Content Include="Content\img\carrusel\comprador_03.png" />
+    <Content Include="Content\img\carrusel\comprador_04.png" />
     <Content Include="Content\img\continental.jpg" />
     <Content Include="Content\img\fondoLlantas.jpeg" />
     <Content Include="Content\img\general.png" />
@@ -342,6 +352,7 @@
     <Content Include="Content\estilos\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\estilos\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\estilos\fonts\FontAwesome.otf" />
+    <Content Include="Content\img\carrusel\Thumbs.db" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\estilos\bootstrap.min.js" />
     <Content Include="Scripts\estilos\jquery.min.js" />
@@ -441,10 +452,22 @@
     <Content Include="Views\Empleados\Edit.cshtml" />
     <Content Include="Views\Empleados\Index.cshtml" />
     <Content Include="Views\Home\Detalle.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\mostrarMensajeInvalida.cshtml" />
+    <Content Include="Views\marcas\Create.cshtml" />
+    <Content Include="Views\marcas\Delete.cshtml" />
+    <Content Include="Views\marcas\Details.cshtml" />
+    <Content Include="Views\marcas\Edit.cshtml" />
+    <Content Include="Views\marcas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagenes\llantas\" />
+    <Folder Include="Imagenes\Marcas\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
