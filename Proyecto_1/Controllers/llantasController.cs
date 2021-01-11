@@ -112,6 +112,7 @@ namespace Proyecto_1.Controllers
                 int id = llantas.Id;
                 var llanta = db.llantas.Find(id);
                 imgAnterior = llanta.imagen;
+                ViewBag.img = imgAnterior;
                 llanta.modelo = llantas.modelo;
                 llanta.descripcion = llantas.descripcion;
                 llanta.rin = llantas.rin;
