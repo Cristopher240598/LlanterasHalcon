@@ -10,6 +10,7 @@ using Proyecto_1.Models;
 
 namespace Proyecto_1.Controllers
 {
+    [Authorize]
     public class paqueteriasController : Controller
     {
         private contextLlantera db = new contextLlantera();

@@ -20,22 +20,13 @@
                 </div>
             </div>
             <div class="row text-center">
-                <div class="col col-md-3 valor-columna">
-                    <span class="fa-stack fa-4x"><img src="~/Content/img/michelin.jpg" style="width: 100%;"></span>
-                    <h4 class="section-heading">Michelin</h4>
-                </div>
-                <div class="col col-md-3 valor-columna">
-                    <span class="fa-stack fa-4x"><img src="~/Content/img/continental.jpg" style="width: 100%;"></span>
-                    <h4>Continental</h4>
-                </div>
-                <div class="col col-md-3 valor-columna">
-                    <span class="fa-stack fa-4x"><img src="~/Content/img/general.png" style="width: 100%;"></span>
-                    <h4 class="section-heading">General</h4>
-                </div>
-                <div class="col col-md-3 valor-columna">
-                    <span class="fa-stack fa-4x"><img src="~/Content/img/pirelli.png" style="width: 100%;"></span>
-                    <h4 class="section-heading">Pirelli</h4>
-                </div>
+                @foreach (marcas marca in ViewBag.marcas)
+                 {               
+                    <div class="col col-md-2 valor-columna">
+                        <span class="fa-stack fa-4x"><img src="~/Content/img/Logo.png" style="width: 100%;"></span>
+                        <h4 class="section-heading">@marca.nombre</h4>
+                    </div>   
+                 }
             </div>
         </div>
     </section>

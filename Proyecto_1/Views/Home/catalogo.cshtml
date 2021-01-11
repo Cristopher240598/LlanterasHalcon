@@ -1,4 +1,4 @@
-﻿
+﻿@using Proyecto_1.Models;
 @{
     ViewBag.Title = "catalogo";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,19 +11,23 @@
                 <div class="col col-md-4">
                     <div class="d-flex align-items-center">
                         <label style="margin-right:10px; margin-bottom:0px;">Selecciona la categoría: </label>
-                        <select>
-                            <option>Categoría</option>
+                        <select id="comboboxCategorias">
+                            <option value="-1">--- No seleccionada ---</option>
+                            @foreach (categorias categoria in ViewBag.categorias)
+                            {
+                                <option value="@categoria.Id">@categoria.nombre</option>
+                            }
                         </select>
                     </div>
                     <div class="d-flex align-items-center" style="margin-top:20px;">
                         <label style="margin-right:10px; margin-bottom:0px;">Selecciona la subcategoría: </label>
-                        <select>
-                            <option>Subcategoría</option>
+                        <select id="comboboxSubcategorias">
+                            <option value="-1">--- No seleccionada ---</option>
                         </select>
                     </div>
                 </div>
                 <div class="col d-flex align-items-center col-md-3">
-                    <input type="submit" value="Actualizar" class="btn boton" />
+                    <input type="submit" id="buttonUpdate" value="Actualizar" class="btn boton" />
                 </div>
             </div>
         </div>
@@ -35,8 +39,11 @@
                     <h2 class="section-heading">Llantas</h2>
                 </div>
                 <div class="col-lg-12 d-flex justify-content-end text-center">
-                    <select>
-                        <option>Ordenar por</option>
+                    <label style="margin-right:10px; margin-bottom:0px;">Ordenar por: </label>
+                    <select id="comboboxOrdenamiento">
+                        <option value="1">Alfabéticamente</option>
+                        <option value="2">Precio (ascendente)</option>
+                        <option value="3">Precio (descendente)</option>
                     </select>
                 </div>
             </div>
@@ -46,123 +53,185 @@
                         <label>Filtros</label>
                     </div>
                     <div style="margin-top:20px;">
-                        <select style="width:100%;">
-                            <option>Marca</option>
+                        <select id="comboboxMarca" style="width:100%;">
+                            <option value="-1">--- Selecciona una marca ---</option>
                         </select>
                     </div>
                     <div style="margin-top:10px;">
-                        <select style="width:100%;">
-                            <option>Rin</option>
+                        <select id="comboboxRin" style="width:100%;">
+                            <option value="-1">--- Selecciona un rin ---</option>
                         </select>
                     </div>
                     <div style="margin-top:10px;">
-                        <select style="width:100%;">
-                            <option>Ancho</option>
+                        <select id="comboboxAncho" style="width:100%;">
+                            <option value="-1">--- Selecciona un ancho ---</option>
                         </select>
                     </div>
                     <div class="text-center" style="margin-top:30px;">
-                        <input type="submit" value="Actualizar" class="btn boton" />
+                        <input type="submit" id="buttonFilter" value="Actualizar" class="btn boton" />
                     </div>
                 </div>
                 <div class="col">
-                    <div class="row text-center">
-                        <div class="col col-md-3  bg-light" style="margin:15px;">
-                            <div style="padding:20px;">
-                                <div class="d-flex justify-content-center">
-                                    <img src="~/Content/img/llanta1.jpg" width="200" />
-                                </div>
-                                <div style="margin-top:20px;">
-                                    <p>Llanta MXDS</p>
-                                </div>
-                                <div>
-                                    <p>Autos y camionetas</p>
-                                </div>
-                                <div>
-                                    <p>Michelin</p>
-                                </div>
-                                <div>
-                                    <p>Rin: 14</p>
-                                </div>
-                                <div>
-                                    <p>Ancho: 124cm</p>
-                                </div>
-                                <div>
-                                    <p>$800.00</p>
-                                </div>
-                                <div class="text-center" style="margin-top:30px;">
-                                    <input type="submit" value="Detalles" class="btn boton" />
-                                </div>
-                                <div class="text-center" style="margin-top:15px;">
-                                    <input type="submit" value="Añadir al carrito" class="btn boton" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-md-3  bg-light" style="margin:15px;">
-                            <div style="padding:20px;">
-                                <div class="d-flex justify-content-center">
-                                    <img src="~/Content/img/llanta1.jpg" width="200" />
-                                </div>
-                                <div style="margin-top:20px;">
-                                    <p>Llanta MXDS</p>
-                                </div>
-                                <div>
-                                    <p>Autos y camionetas</p>
-                                </div>
-                                <div>
-                                    <p>Michelin</p>
-                                </div>
-                                <div>
-                                    <p>Rin: 14</p>
-                                </div>
-                                <div>
-                                    <p>Ancho: 124cm</p>
-                                </div>
-                                <div>
-                                    <p>$800.00</p>
-                                </div>
-                                <div class="text-center" style="margin-top:30px;">
-                                    <input type="submit" value="Detalles" class="btn boton" />
-                                </div>
-                                <div class="text-center" style="margin-top:15px;">
-                                    <input type="submit" value="Añadir al carrito" class="btn boton" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-md-3  bg-light" style="margin:15px;">
-                            <div style="padding:20px;">
-                                <div class="d-flex justify-content-center">
-                                    <img src="~/Content/img/llanta1.jpg" width="200" />
-                                </div>
-                                <div style="margin-top:20px;">
-                                    <p>Llanta MXDS</p>
-                                </div>
-                                <div>
-                                    <p>Autos y camionetas</p>
-                                </div>
-                                <div>
-                                    <p>Michelin</p>
-                                </div>
-                                <div>
-                                    <p>Rin: 14</p>
-                                </div>
-                                <div>
-                                    <p>Ancho: 124cm</p>
-                                </div>
-                                <div>
-                                    <p>$800.00</p>
-                                </div>
-                                <div class="text-center" style="margin-top:30px;">
-                                    <input type="submit" value="Detalles" class="btn boton" />
-                                </div>
-                                <div class="text-center" style="margin-top:15px;">
-                                    <input type="submit" value="Añadir al carrito" class="btn boton" />
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row text-center" id="divContainer">
+                        <!-- Aquí se insertan las llantas -->     
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //Cargar subcategorías dada una categoría
+        $('#comboboxCategorias').on('change', function() {
+            var idCategoria = $('#comboboxCategorias option:selected').val();
+            $.ajax({
+            type: 'GET',
+            data: { idCategoria: idCategoria},
+            url: '@Url.Action("ObtenerSubcategorias", "Home")',
+            success: function (categorias) {
+                var s = '<option value="-1">--- No seleccionada ---</option>';
+                for (var i = 0; i < categorias.length; i++)
+                {                  
+                    s += '<option value="' + categorias[i].id + '">' + categorias[i].nombre + '</option>';
+                }
+                $('#comboboxSubcategorias').html(s);
+            }
+            });
+        });
+        
+        //Cargar llantas dada una subcategoría
+        $('#buttonUpdate').click(function() {
+            var idCategoria = $('#comboboxCategorias option:selected').val();
+            var idSubcategoria = $('#comboboxSubcategorias option:selected').val();
+            if (idCategoria != -1) {
+                if (idSubcategoria != -1) { 
+                    //Obtener llantas
+                    $.ajax({
+                        type: 'GET',
+                        data: { idSubcategoria: idSubcategoria},
+                        url: '@Url.Action("ObtenerLlantas", "Home")',
+                        success: function (llantas) {
+                            var s = ''; 
+                            for (var i = 0; i < llantas.length; i++)
+                            {
+                                s += '<div class="col col-md-3  bg-light" style="margin:15px;"><div style="padding:20px;">';
+                                s += '<div class="d-flex justify-content-center"><img src="~/Imagenes/llantas/' + llantas[i].img + '" width="200" /></div>';
+                                s += '<div style="margin-top:20px;"><p>' + llantas[i].modelo + '</p></div>';
+                                s += '<div><p>' + llantas[i].marca + '</p></div>';
+                                s += '<div><p>Rin: ' + llantas[i].rin + '</p></div>';
+                                s += '<div><p>Ancho: ' + llantas[i].ancho + 'cm</p></div>';
+                                s += '<div><p>$' + llantas[i].precio + '</p></div>';
+                                s += '<div class="text-center" style="margin-top:30px;"><button class="btn boton" onclick="Detalle(' + llantas[i].id + ')">Detalles</button></div>';
+                                s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + llantas[i].id + ')">Añadir al carrito</button></div>'; 
+                                s += '</div></div>';
+                            }
+                            $('#divContainer').html(s);
+                            //Obtener filtros para marcas
+                            $.ajax({
+                                type: 'GET',
+                                url: '@Url.Action("ObtenerFiltrosMarcas", "Home")',
+                                success: function (marcas) {
+                                    var m = '<option value="-1">--- Selecciona una marca ---</option>';
+                                    for (var i = 0; i < marcas.length; i++) {
+                                        m += '<option value="' + i + '">' + marcas[i].nombre + '</option>';
+                                    }
+                                    $('#comboboxMarca').html(m);
+                                }
+                            });
+                            //Obtener filtros para rines
+                            $.ajax({
+                                type: 'GET',
+                                url: '@Url.Action("ObtenerFiltrosRines", "Home")',
+                                success: function (rines) {
+                                    var r = '<option value="-1">--- Selecciona un rin ---</option>';
+                                    for (var i = 0; i < rines.length; i++) {
+                                        r += '<option value="' + i + '">' + rines[i].nombre + '</option>';
+                                    }
+                                    $('#comboboxRin').html(r);
+                                }
+                            });
+                            //Obtener filtros para anchos
+                            $.ajax({
+                                type: 'GET',
+                                url: '@Url.Action("ObtenerFiltrosAnchos", "Home")',
+                                success: function (anchos) {
+                                    var a = '<option value="-1">--- Selecciona un ancho ---</option>';
+                                    for (var i = 0; i < anchos.length; i++) {
+                                        a += '<option value="' + i + '">' + anchos[i].nombre + '</option>';
+                                    }
+                                    $('#comboboxAncho').html(a);
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    alert('Error. Selecciona una subcategoría');
+                }
+            }else{
+                alert('Error. Selecciona una categoría');
+            }
+        });
 
+        //Ordenar lista de llantas
+        $('#comboboxOrdenamiento').on('change', function() {
+            var valOrden = $('#comboboxOrdenamiento option:selected').val();
+            $.ajax({
+            type: 'GET',
+            data: { valOrden: valOrden},
+            url: '@Url.Action("OrdenarLlantas", "Home")',
+            success: function (orden) {
+                var s = '';
+                for (var i = 0; i < orden.length; i++) {
+                    s += '<div class="col col-md-3  bg-light" style="margin:15px;"><div style="padding:20px;">';
+                    s += '<div class="d-flex justify-content-center"><img src="~/Imagenes/llantas/' + orden[i].img + '" width="200" /></div>';
+                    s += '<div style="margin-top:20px;"><p>' + orden[i].modelo + '</p></div>';
+                    s += '<div><p>' + orden[i].marca + '</p></div>';
+                    s += '<div><p>Rin: ' + orden[i].rin + '</p></div>';
+                    s += '<div><p>Ancho: ' + orden[i].ancho + 'cm</p></div>';
+                    s += '<div><p>$' + orden[i].precio + '</p></div>';
+                    s += '<div class="text-center" style="margin-top:30px;"><button class="btn boton" onclick="Detalle(' + orden[i].id + ')">Detalles</button></div>';
+                    s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + orden[i].id + ')">Añadir al carrito</button></div>'; 
+                    s += '</div></div>';
+                }
+                $('#divContainer').html(s);
+            }
+            });
+        });
+
+        $('#buttonFilter').click(function() {
+            var marca = $('#comboboxMarca option:selected').val();
+            var rin = $('#comboboxRin option:selected').val();
+            var ancho = $('#comboboxAncho option:selected').val();
+            $.ajax({
+            type: 'GET',
+            data: { marca: marca, rin: rin, ancho: ancho},
+            url: '@Url.Action("FiltrarLlantas", "Home")',
+            success: function (filtro) {
+                var s = '';
+                for (var i = 0; i < filtro.length; i++) {
+                    s += '<div class="col col-md-3  bg-light" style="margin:15px;"><div style="padding:20px;">';
+                    s += '<div class="d-flex justify-content-center"><img src="~/Imagenes/llantas/' + filtro[i].img + '" width="200" /></div>';
+                    s += '<div style="margin-top:20px;"><p>' + filtro[i].modelo + '</p></div>';
+                    s += '<div><p>' + filtro[i].marca + '</p></div>';
+                    s += '<div><p>Rin: ' + filtro[i].rin + '</p></div>';
+                    s += '<div><p>Ancho: ' + filtro[i].ancho + 'cm</p></div>';
+                    s += '<div><p>$' + filtro[i].precio + '</p></div>';
+                    s += '<div class="text-center" style="margin-top:30px;"><button class="btn boton" onclick="Detalle(' + filtro[i].id + ')">Detalles</button></div>';
+                    s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + filtro[i].id + ')">Añadir al carrito</button></div>'; 
+                    s += '</div></div>';
+                }
+                $('#divContainer').html(s);
+            }
+            });
+        });       
+    });
+    //'Detalles' de llantas
+    function Detalle(id) {
+        location.href = '@Url.Action("Detalle", "Home")?id=' + id;
+    }
+    //'Agregar al carrito' de llantas
+    function Carrito(id) {
+        alert('Agregar llanta:' + id);
+    }
+</script>
