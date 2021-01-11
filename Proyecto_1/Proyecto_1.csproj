@@ -196,8 +196,10 @@
     <Compile Include="Controllers\CarroController.cs" />
     <Compile Include="Controllers\CatalogoController.cs" />
     <Compile Include="Controllers\categoriasController.cs" />
+    <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CompradorController.cs" />
     <Compile Include="Controllers\detallesComprasController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\enviosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
@@ -228,6 +230,7 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LlantaContador.cs" />
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
