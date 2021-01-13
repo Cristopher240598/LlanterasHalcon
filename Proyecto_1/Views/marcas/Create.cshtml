@@ -1,0 +1,52 @@
+﻿@model Proyecto_1.Models.marcas
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Crear Marca</h2>
+
+@using (Html.BeginForm("Create", "marcas", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="row">
+        <div class="col">
+            <div class="form-group text-left">
+                <label>Nombre:</label>
+                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group text-left">
+                <label>Imagen:</label>
+                <input type="file" id="imagenMarca" name="imagenMarca" accept="image/*" />
+                @Html.ValidationMessage("mensajeImagen", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <img class="border" src="" width="165" id="imagenSalidam" />
+            </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <input type="submit" value="Agregar" class="btn boton" />
+        </div>
+    </div>
+
+        }
+
+        <div>
+            @Html.ActionLink("Ver marcas", "Index", new { id = "" }, new { @class = "link-item" })
+
+        </div>
