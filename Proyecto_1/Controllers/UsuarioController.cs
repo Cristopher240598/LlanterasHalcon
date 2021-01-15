@@ -44,11 +44,11 @@ namespace Proyecto_1.Controllers
                 {
                     return RedirectToAction("Index", "Admin");
                 }
-                else if (rol == 2)
+                else if (rol == 3)
                 {
                     return RedirectToAction("Index", "Comprador");
                 }
-                else if (rol == 3)
+                else if (rol == 4)
                 {
                     return RedirectToAction("Index", "Home");
                 }

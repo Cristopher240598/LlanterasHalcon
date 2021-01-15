@@ -92,27 +92,27 @@
             success: function (categorias) {
                 var s = '<option value="-1">--- No seleccionada ---</option>';
                 for (var i = 0; i < categorias.length; i++)
-                {                  
+                {
                     s += '<option value="' + categorias[i].id + '">' + categorias[i].nombre + '</option>';
                 }
                 $('#comboboxSubcategorias').html(s);
             }
             });
         });
-        
+
         //Cargar llantas dada una subcategoría
         $('#buttonUpdate').click(function() {
             var idCategoria = $('#comboboxCategorias option:selected').val();
             var idSubcategoria = $('#comboboxSubcategorias option:selected').val();
             if (idCategoria != -1) {
-                if (idSubcategoria != -1) { 
+                if (idSubcategoria != -1) {
                     //Obtener llantas
                     $.ajax({
                         type: 'GET',
                         data: { idSubcategoria: idSubcategoria},
                         url: '@Url.Action("ObtenerLlantas", "Home")',
                         success: function (llantas) {
-                            var s = ''; 
+                            var s = '';
                             for (var i = 0; i < llantas.length; i++)
                             {
                                 s += '<div class="col col-md-3  bg-light" style="margin:15px;"><div style="padding:20px;">';
@@ -123,7 +123,7 @@
                                 s += '<div><p>Ancho: ' + llantas[i].ancho + 'cm</p></div>';
                                 s += '<div><p>$' + llantas[i].precio + '</p></div>';
                                 s += '<div class="text-center" style="margin-top:30px;"><button class="btn boton" onclick="Detalle(' + llantas[i].id + ')">Detalles</button></div>';
-                                s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + llantas[i].id + ')">Añadir al carrito</button></div>'; 
+                                s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + llantas[i].id + ')">Añadir al carrito</button></div>';
                                 s += '</div></div>';
                             }
                             $('#divContainer').html(s);
@@ -191,7 +191,7 @@
                     s += '<div><p>Ancho: ' + orden[i].ancho + 'cm</p></div>';
                     s += '<div><p>$' + orden[i].precio + '</p></div>';
                     s += '<div class="text-center" style="margin-top:30px;"><button class="btn boton" onclick="Detalle(' + orden[i].id + ')">Detalles</button></div>';
-                    s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + orden[i].id + ')">Añadir al carrito</button></div>'; 
+                    s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + orden[i].id + ')">Añadir al carrito</button></div>';
                     s += '</div></div>';
                 }
                 $('#divContainer').html(s);
@@ -218,13 +218,13 @@
                     s += '<div><p>Ancho: ' + filtro[i].ancho + 'cm</p></div>';
                     s += '<div><p>$' + filtro[i].precio + '</p></div>';
                     s += '<div class="text-center" style="margin-top:30px;"><button class="btn boton" onclick="Detalle(' + filtro[i].id + ')">Detalles</button></div>';
-                    s += '<div class="text-center" style="margin-top:15px;"><button class="btn boton" onclick="Carrito(' + filtro[i].id + ')">Añadir al carrito</button></div>'; 
+                    s += '<div class="text-center" style="margin-top:15px;"></div>';
                     s += '</div></div>';
                 }
                 $('#divContainer').html(s);
             }
             });
-        });       
+        });
     });
     //'Detalles' de llantas
     function Detalle(id) {
@@ -232,6 +232,7 @@
     }
     //'Agregar al carrito' de llantas
     function Carrito(id) {
-        alert('Agregar llanta:' + id);
+        location.href ='@Url.Action("Agregar","Carro")?id' = +id;
+
     }
 </script>
