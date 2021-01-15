@@ -29,14 +29,16 @@
                                         </tr>
                                         @foreach (Item item in (List<Item>)Session["cart"])
                                         {
-                                       
+                                            var f= (@item.llantas.precioVenta * @item.cantidad);
                                         <tr>
                                             <td><a href="@Url.Action("quitar","Carro",new{id=item.llantas.Id})">Quitar</a></td>
                                             <td>@item.llantas.modelo</td>
-                                            <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
+                                            <td> <img  src="~/Imagenes/llantas/@item.llantas.imagen" width="100" id="imagenSalida" /></td>
                                             <td>@item.llantas.precioVenta</td>
                                             <td>@item.cantidad</td>
-                                            <td>@item.llantas.precioVenta * @item.cantidad</td>
+                                            <td>
+                                                @f
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td align="right" colspan="5">Total:</td>

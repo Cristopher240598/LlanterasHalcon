@@ -12,9 +12,16 @@ namespace Proyecto_1.Controllers
         // GET: Carro
         public ActionResult Index()
         {
-            
 
-            return View();
+            if (Session["cart"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
+           
         }
 
         public ActionResult Agregar(int id)
