@@ -34,7 +34,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
             return View(marcas);
         }
 
@@ -81,7 +81,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
 
             return View(marcas);
         }
@@ -94,12 +94,12 @@ namespace Proyecto_1.Controllers
         public ActionResult Edit([Bind(Include = "Id,nombre")] marcas marcas, HttpPostedFileBase imagenMarca)
         {
             string img = "";
-            string imgAnterior;
+            string imgAnteriorm;
             if (ModelState.IsValid)
             {
                 int id = marcas.Id;
                 var marca = db.marcas.Find(id);
-                imgAnterior = marcas.imagen;
+                imgAnteriorm = marca.imagen;
 
                 if (imagenMarca != null && imagenMarca.ContentLength > 0)
                 {
@@ -107,7 +107,7 @@ namespace Proyecto_1.Controllers
                     imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
                     img = nombreImagen;
                     marca.imagen = img;
-                    System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", imgAnterior));
+                    System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", imgAnteriorm));
                 }
 
              //   db.Entry(marcas).State = EntityState.Modified;
@@ -129,7 +129,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
             return View(marcas);
         }
 

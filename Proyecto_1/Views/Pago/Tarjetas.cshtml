@@ -1,24 +1,35 @@
 ﻿
+
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tarjetas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <main >
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="row">
-                            <div class="col">
-                                <h2 class="section-heading">Pago</h2>
+
+<h2>Pago con Tarjetas</h2>
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="section-heading">Tarjetas</h2>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col col-md-4">
+                                <p>Pagar con tarjeta</p>
+                                <img src="~/Content/img/masterd.png" height="30" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col text-left">
-                                <p>Cliente: </p>
-                                <p>Dirección de entrega:</p>
-                                <p>Fecha:</p>
+                                <p>Número de envío:</p>
+                                <p>Fecha de creación:</p>
+                                <p>Fecha de última actualización:</p>
+                                <p>Estado:</p>
+                                <p>Paqueteria:</p>
                             </div>
                         </div>
                         <div class="row">
@@ -60,23 +71,12 @@
                                             <td>$2400.00</td>
                                         </tr>
                                     </table>
+
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row d-flex justify-content-center">
-                            <div class="col col-md-4">
-                                <p>Pagar con tarjeta</p>
-                                <img src="~/Content/img/masterd.png" height="30"/>
-                            </div>
-                            <div class="col col-md-4">
-                                <p>Pagar con PayPal</p>
-                                <img src="~/Content/img/paypal.png" height="30" />
-                            </div>
-                        </div>
                     </div>
-                </div>
             </div>
-        </section>
-    </main>
-
+        </div>
+    </section>
+</main>

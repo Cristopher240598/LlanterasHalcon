@@ -10,8 +10,9 @@
                 @*@Html.ActionLink("Hola " + name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link js-scroll-trigger opciones" })*@
                 <a class="dropdown-toggle nav-link js-scroll-trigger opciones" role="button" aria-expanded="false" data-toggle="dropdown">Hola @name<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                  
                     <li>
-                        @Html.ActionLink("Mis Pedidos", "Index", "Pedidos", null, new { id = "add" })
+                        @Html.ActionLink("Mis Pedidos", "historialPedidos", "Pedidos", null, new { id = "ad" })
                     </li>
                 </ul>
             </li>

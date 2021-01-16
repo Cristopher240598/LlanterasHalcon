@@ -112,6 +112,7 @@ namespace Proyecto_1.Controllers
                 int id = llantas.Id;
                 var llanta = db.llantas.Find(id);
                 imgAnterior = llanta.imagen;
+
                 llanta.modelo = llantas.modelo;
                 llanta.descripcion = llantas.descripcion;
                 llanta.rin = llantas.rin;
@@ -133,8 +134,8 @@ namespace Proyecto_1.Controllers
                     img = nombreImagen;
                     llanta.imagen = img;
                     //Cambiar ruta
-                    System.IO.File.Delete(Path.Combine(@"C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
-                  //System.IO.File.Delete(Path.Combine(@"D:\VS\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
+                   // System.IO.File.Delete(Path.Combine(@"C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", imgAnterior));
+                  System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Llantas", imgAnterior));
                 }
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -169,8 +170,8 @@ namespace Proyecto_1.Controllers
         {
             llantas llantas = db.llantas.Find(id);
             //Cambiar ruta
-            System.IO.File.Delete(Path.Combine(@"C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
-         //   System.IO.File.Delete(Path.Combine(@"D:\VS\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
+           // System.IO.File.Delete(Path.Combine(@"C:\Users\pablo\Source\Repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\llantas", llantas.imagen));
+            System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Llantas", llantas.imagen));
             db.llantas.Remove(llantas);
             db.SaveChanges();
             return RedirectToAction("Index");

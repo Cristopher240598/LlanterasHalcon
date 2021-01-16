@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
-<h2>Editar llanta</h2>
+<h2>Editar llanta  @ViewBag.img</h2>
 
 @using (Html.BeginForm("Edit", "llantas", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
