@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Editar marca</h2>
+<h2>Editar marca   @ViewBag.img - @ViewBag.id</h2>
 @using (Html.BeginForm("Edit", "marcas", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
