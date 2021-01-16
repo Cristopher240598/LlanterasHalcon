@@ -27,8 +27,10 @@
                                             <th>Cantidad</th>
                                             <th>Subtotal</th>
                                         </tr>
+                                        
                                         @foreach (Item item in (List<Item>)Session["cart"])
                                         {
+                                            // todo esto hace la magia
                                             var f= (@item.llantas.precioVenta * @item.cantidad);
                                         <tr>
                                             <td><a href="@Url.Action("quitar","Carro",new{id=item.llantas.Id})">Quitar</a></td>
