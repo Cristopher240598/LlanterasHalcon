@@ -230,6 +230,7 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\LlantaContador.cs" />
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -256,6 +257,7 @@
     <Compile Include="Models\paqueterias.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProdCarro.cs" />
     <Compile Include="Models\proveedores.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -304,17 +306,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\Marcas\20210106154742-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210106155137-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210106155303-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210107091106-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107091915-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210107092115-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107092610-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107092917-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107093217-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210107093314-5860f81a4fc7f3474eb80db5.png" />
-    <Content Include="Imagenes\Marcas\20210107093433-5860f81a4fc7f3474eb80db5.png" />
     <Content Include="Models\Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -454,11 +445,12 @@
     <Content Include="Views\Empleados\Edit.cshtml" />
     <Content Include="Views\Empleados\Index.cshtml" />
     <Content Include="Views\Home\Detalle.cshtml" />
-    <Content Include="Views\marcas\Create.cshtml" />
-    <Content Include="Views\marcas\Delete.cshtml" />
-    <Content Include="Views\marcas\Details.cshtml" />
-    <Content Include="Views\marcas\Edit.cshtml" />
-    <Content Include="Views\marcas\Index.cshtml" />
+    <Content Include="Views\Clientes\Create.cshtml" />
+    <Content Include="Views\Clientes\Delete.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\Clientes\Edit.cshtml" />
+    <Content Include="Views\Clientes\Index.cshtml" />
+    <Content Include="Views\Clientes\mostrarMensajeInvalida.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
