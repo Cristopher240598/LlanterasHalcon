@@ -12,6 +12,18 @@ namespace Proyecto_1.Controllers
         public ActionResult Index()
         {
             return View();
+       }
+        public ActionResult Tarjetas()
+        {
+            return View();
+        }
+        public ActionResult historialPedidos()
+        {
+            return View();
+        }
+        public ActionResult Paypal()
+        {
+            return View();
         }
     }
 }

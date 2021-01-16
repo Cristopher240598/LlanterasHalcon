@@ -12,7 +12,7 @@ namespace Proyecto_1.Controllers
         private contextLlantera db = new contextLlantera();
 
         public ActionResult Index()
-        {
+        {  
             ObtenerMarcasAleatorias(6);
             ObtenerLLantasMasVendidas(6);            
             return View();
