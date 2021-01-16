@@ -34,7 +34,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
             return View(marcas);
         }
 
@@ -81,7 +81,8 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
+
             return View(marcas);
         }
 
@@ -93,26 +94,21 @@ namespace Proyecto_1.Controllers
         public ActionResult Edit([Bind(Include = "Id,nombre")] marcas marcas, HttpPostedFileBase imagenMarca)
         {
             string img = "";
-            string imgAnterior;
+            string imgAnteriorm;
             if (ModelState.IsValid)
             {
                 int id = marcas.Id;
-                //var marca = db.marcas.Find(id);
+                var marca = db.marcas.Find(id);
+                imgAnteriorm = marca.imagen;
 
-                var marcaquery = from ll in db.marcas
-                             where ll.Id == id
-                             select ll; //Obtener el registro de la llanta
-                imgAnterior = marcaquery.ToList()[0].imagen;
-                ViewBag.img = imgAnterior;
-                ViewBag.id = id;
-             //   if (imagenMarca != null && imagenMarca.ContentLength > 0)
-              //  {
-             //       string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenMarca.FileName).ToLower();
-             //       imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
-               //     img = nombreImagen;
-               //     marca.imagen = img;
-               //     System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas\", imgAnterior));
-               // }
+                if (imagenMarca != null && imagenMarca.ContentLength > 0)
+                {
+                    string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenMarca.FileName).ToLower();
+                    imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
+                    img = nombreImagen;
+                    marca.imagen = img;
+                    System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", imgAnteriorm));
+                }
 
              //   db.Entry(marcas).State = EntityState.Modified;
                 db.SaveChanges();
@@ -133,7 +129,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
             return View(marcas);
         }
 

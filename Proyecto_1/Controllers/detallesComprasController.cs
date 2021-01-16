@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -17,6 +18,7 @@ namespace Proyecto_1.Controllers
         // GET: detallesCompras
         public ActionResult Index()
         {
+           // .Include(d => d.proveedores).Include(d => d.subcategorias)
             var detallesCompras = db.detallesCompras.Include(d => d.compras).Include(d => d.llantas);
             return View(detallesCompras.ToList());
         }
@@ -33,16 +35,68 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
+         //   ViewData["fechaUlt"] = detallesCompras.ultActualizacion.ToString("dd/MM/yyyy");
             return View(detallesCompras);
         }
 
         // GET: detallesCompras/Create
         public ActionResult Create()
         {
+            ObtenerCategorias();
+            ObtenerProveedores();
             ViewBag.id_compra = new SelectList(db.compras, "Id", "Id");
             ViewBag.id_llanta = new SelectList(db.llantas, "Id", "modelo");
             return View();
         }
+
+        private void ObtenerProveedores()
+        {
+            //Obtener todas las proveedores
+            var proveedoresQuery = from c in db.proveedores
+                                  select c;
+            var proveedores = proveedoresQuery.ToList();
+            ViewBag.proveedores = proveedores;
+        }
+
+        private void ObtenerCategorias()
+        {
+            //Obtener todas las categorías
+            var categoriasQuery = from c in db.categorias
+                                  select c;
+            var categorias = categoriasQuery.ToList();
+            ViewBag.categorias = categorias;
+        }
+
+        public ActionResult ObtenerSubcategorias(int idCategoria)
+        {
+            return Json(db.subcategorias.Where(s => s.id_categoria == idCategoria).Select(s => new {
+                id = s.Id,
+                nombre = s.nombre
+            }).ToList(), JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // POST: detallesCompras/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
