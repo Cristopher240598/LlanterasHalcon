@@ -204,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\llantasController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\marcasController.cs" />
     <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\paqueteriasController.cs" />
     <Compile Include="Controllers\ProvedoresController.cs" />
@@ -305,6 +306,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\Marcas\20210106154742-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210106155137-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210106155303-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210107091106-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107091915-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210107092115-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107092610-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107092917-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107093217-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210107093314-5860f81a4fc7f3474eb80db5.png" />
+    <Content Include="Imagenes\Marcas\20210107093433-5860f81a4fc7f3474eb80db5.png" />
     <Content Include="Models\Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -444,6 +456,11 @@
     <Content Include="Views\Empleados\Edit.cshtml" />
     <Content Include="Views\Empleados\Index.cshtml" />
     <Content Include="Views\Home\Detalle.cshtml" />
+    <Content Include="Views\marcas\Create.cshtml" />
+    <Content Include="Views\marcas\Delete.cshtml" />
+    <Content Include="Views\marcas\Details.cshtml" />
+    <Content Include="Views\marcas\Edit.cshtml" />
+    <Content Include="Views\marcas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
