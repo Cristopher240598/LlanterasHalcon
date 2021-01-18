@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Editar marca</h2>
+<h2>Editar marca   @ViewBag.img - @ViewBag.id</h2>
 @using (Html.BeginForm("Edit", "marcas", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
@@ -20,14 +20,15 @@
         <label>Nombre:</label>
         @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
-
     </div>
+
     <div class="form-group text-left">
         <label>Imagen:</label>
         <input type="file" id="imagenMarca" name="imagenMarca" accept="image/*" />
     </div>
+
     <div class="form-group">
-        <img class="border" src="~/Imagenes/Marcas/" width="165" id="imagenSalidam" />
+        <img class="border" src="~/Imagenes/Marcas/@ViewData["imagenM"]" width="165" id="imagenSalidam" />
     </div>
 
     <div class="form-group">
