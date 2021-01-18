@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutCompras.cshtml";    
+    Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
 <h2>Detalles de la llanta</h2>
@@ -17,39 +17,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.modelo)
-                </dd>
-
-                <dt>
-                    Descripción
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.descripcion)
-                </dd>
-
-                <dt>
-                    Rin
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.rin)"
-                </dd>
-
-                <dt>
-                    Ancho
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ancho)
-                </dd>
-
-                <dt>
-                    Perfil
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.perfil)
+                    @ViewBag.listaLlantas.modelo
                 </dd>
 
                 <dt>
@@ -57,16 +25,31 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.carga)
+                    @ViewBag.listaLlantas.carga
                 </dd>
-            </div>
-            <div class="col text-left">
+
                 <dt>
-                    Imagen
+                    Rin
                 </dt>
 
                 <dd>
-                    <img style="margin:14px 0px;" class="border" src="~/Imagenes/llantas/@ViewData["imagenL"]" width="165" />
+                    @ViewBag.listaLlantas.rin"
+                </dd>
+
+                <dt>
+                    Ancho
+                </dt>
+
+                <dd>
+                    @ViewBag.listaLlantas.ancho
+                </dd>
+
+                <dt>
+                    Perfil
+                </dt>
+
+                <dd>
+                    @ViewBag.listaLlantas.perfil
                 </dd>
 
                 <dt>
@@ -74,7 +57,7 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.stock)
+                    @ViewBag.listaLlantas.stock
                 </dd>
 
                 <dt>
@@ -82,7 +65,25 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.existencia)
+                    @ViewBag.listaLlantas.existencia
+                </dd>
+
+            </div>
+            <div class="col text-left" style="margin-right:60px;">
+                <dt>
+                    Descripción
+                </dt>
+
+                <dd>
+                    @ViewBag.listaLlantas.descripcion
+                </dd>
+
+                <dt>
+                    Imagen
+                </dt>
+
+                <dd>
+                    <img style="margin:14px 0px;" class="border" src="~/Imagenes/llantas/@ViewBag.listaLlantas.imagen" width="165" />
                 </dd>
             </div>
             <div class="col text-left">
@@ -91,7 +92,7 @@
                 </dt>
 
                 <dd>
-                    $@Html.DisplayFor(model => model.precioVenta)
+                    $@ViewBag.listaLlantas.precioVenta
                 </dd>
 
                 <dt>
@@ -99,7 +100,7 @@
                 </dt>
 
                 <dd>
-                    $@Html.DisplayFor(model => model.precioCompra)
+                    $@ViewBag.listaLlantas.precioCompra
                 </dd>
 
                 <dt>
@@ -111,19 +112,19 @@
                 </dd>
 
                 <dt>
-                    Marca
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.marcas.nombre)
-                </dd>
-
-                <dt>
                     Proveedor
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.proveedores.razonSocial)
+                    @ViewBag.listaLlantas.proveedor
+                </dd>
+
+                <dt>
+                    Categoría
+                </dt>
+
+                <dd>
+                    @ViewBag.listaLlantas.categoria
                 </dd>
 
                 <dt>
@@ -131,13 +132,22 @@
                 </dt>
 
                 <dd>
-                    @Html.DisplayFor(model => model.subcategorias.nombre)
+                    @ViewBag.listaLlantas.subcategoria
                 </dd>
+
+                <dt>
+                    Marca
+                </dt>
+
+                <dd>
+                    @ViewBag.listaLlantas.marca
+                </dd>
+
             </div>
         </div>
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, new { @class = "link-item" }) |
-    @Html.ActionLink("Ver llantas", "Index", new { id = Model.Id }, new { @class = "link-item" })
+    @Html.ActionLink("Editar", "Edit", new { id = ViewBag.listaLlantas.Id }, new { @class = "link-item" }) |
+    @Html.ActionLink("Ver llantas", "Index", new { id = ViewBag.listaLlantas.Id }, new { @class = "link-item" })
 </p>
