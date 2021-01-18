@@ -1,30 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display: flex;", @class = "" }))
     {
         @Html.AntiForgeryToken()
         string name = @Session["name"].ToString();
-        <ul class="nav navbar-nav ml-auto text-uppercase">
-            <li class="nav-item" style="margin-right:5px;">
-                @*@Html.ActionLink("Hola " + name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link js-scroll-trigger opciones" })*@
-                <a class="dropdown-toggle nav-link js-scroll-trigger opciones" role="button" aria-expanded="false" data-toggle="dropdown">Hola @name<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  
-                    <li>
-                        @Html.ActionLink("Mis Pedidos", "historialPedidos", "Pedidos", null, new { id = "ad" })
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger opciones" href=@Url.Action("Index","Carro")>
-                    <i class="tamanio-icono fa fa-shopping-cart"></i>()
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger opciones" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
-            </li>
-        </ul>
+
+        <li class="nav-item dropdown" style="margin-right:5px;">
+            @*@Html.ActionLink("Hola " + name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link js-scroll-trigger opciones" })*@
+            <a class="dropdown-toggle nav-link opciones" role="button" aria-expanded="false" data-toggle="dropdown">Hola @name<span class="caret"></span></a>
+            <div class="dropdown-menu" role="menu">
+                @Html.ActionLink("Mis Pedidos", "Index", "Pedidos", null, new { id = "add", @class = "dropdown-item opciones" })
+                @Html.ActionLink("Editar perfil", "Index", "Pedidos", null, new { id = "add", @class = "dropdown-item opciones" })
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger opciones" href=@Url.Action("Index","Carro")>
+                <i class="tamanio-icono fa fa-shopping-cart"></i>(0)
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger opciones" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+        </li>
     }
 }
 else
