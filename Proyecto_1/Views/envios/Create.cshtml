@@ -11,32 +11,9 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal" style="padding: 0px 175px;">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.fechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.fechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.fechaCreacion, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-        @*<div class="form-group">
-                <label>Fecha de enrutamiento:</label>
-                    @Html.EditorFor(model => model.fechaEnvio, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.fechaEnvio, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
 
         <div class="form-group text-left">
             <label>Paquetería:</label>
@@ -46,35 +23,42 @@
 
         <div class="form-group text-left">
             <label>No. de venta:</label>
-            @Html.DropDownList("id_venta", null, htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownList("id_venta", null, htmlAttributes: new { @class = "form-control", id = "id_venta" })
             @Html.ValidationMessageFor(model => model.id_venta, "", new { @class = "text-danger" })
         </div>
-
-        <div class="row" style="width:400px;">
+    </div>
+    <div class="form-horizontal" style="width:700px;">
+        <div class="row">
             <div class="col">
-                <p>Fecha de venta:</p>
+                <p><strong>Fecha de venta:</strong></p>
+                <p id="p_fechaVenta"></p>
             </div>
             <div class="col">
-                <p>Total de venta:</p>
+                <p><strong>Total de venta:</strong></p>
+                <p id="p_totalVenta"></p>
             </div>
         </div>
         <div class="row">
             <div style="width:100%;">
-                <p>Información de contacto:</p>
+                <p><strong>INFORMACIÓN DE CONTACTO</strong></p>
             </div>
             <div style="width:100%;">
-                <p>Entregar a:</p>
+                <p><strong>Entregar a:</strong></p>
+                <p id="p_nombre"></p>
             </div>
             <div style="width:100%;">
-                <p>Dirección:</p>
+                <p><strong>Dirección:</strong></p>
+                <p id="p_direccion"></p>
             </div>
         </div>
-        <div class="row" style="width:400px;">
+        <div class="row">
             <div class="col">
-                <p>Email:</p>
+                <p><strong>Correo electrónico:</strong></p>
+                <p id="p_correo"></p>
             </div>
             <div class="col">
-                <p>Teléfono:</p>
+                <p><strong>Teléfono:</strong></p>
+                <p id="p_telefono"></p>
             </div>
         </div>
 
@@ -83,6 +67,46 @@
         </div>
     </div>
 }
+
+<script>
+
+
+    var cboVentas = document.getElementById("id_venta");
+    cboVentas.addEventListener("change", Refresh);
+    Refresh();
+    function Refresh()
+    {
+        fetch("@Url.Content("~/envios/obtenerVentaUsuario")" + "?ventaID=" + cboVentas.value)
+            .then(function (result) {
+                if (result.ok) {
+                    return result.json();
+                }
+            })
+            .then(function (data) {
+                data.forEach(function (element) {
+                    var pfechaVenta = document.getElementById("p_fechaVenta");
+                    var ptotalVenta = document.getElementById("p_totalVenta");
+                    var pnombre = document.getElementById("p_nombre");
+                    var pdireccion = document.getElementById("p_direccion");
+                    var pcorreo = document.getElementById("p_correo");
+                    var ptelefono = document.getElementById("p_telefono");
+                    var fechaString = element.fechaVenta.substring(6, 19);
+                    var fechaActual = new Date(parseInt(fechaString));
+                    var mes = fechaActual.getMonth() + 1;
+                    var dia = fechaActual.getDate();
+                    var anio = fechaActual.getFullYear();
+                    var fecha = dia + "/" + mes + "/" + anio;
+                    console.log(fecha);
+                    pfechaVenta.innerHTML = fecha;
+                    ptotalVenta.innerHTML = "$ " + element.total;
+                    pnombre.innerHTML = element.nombre + " " + element.apellidoPaterno + " " + element.apellidoMaterno;
+                    pdireccion.innerHTML = element.cp + " " + element.estado + " " + element.municipio + " " + element.colonia + " " + element.calle + " " + element.numeroCasa;
+                    pcorreo.innerHTML = element.correoElectronico;
+                    ptelefono.innerHTML = element.telefono;
+                })
+            })
+    }
+</script>
 
 <div>
     @Html.ActionLink("Ver envíos", "Index", new { id = "" }, new { @class = "link-item" })
