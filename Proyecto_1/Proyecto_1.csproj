@@ -237,6 +237,7 @@
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\llantasSubCat.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\marcas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
