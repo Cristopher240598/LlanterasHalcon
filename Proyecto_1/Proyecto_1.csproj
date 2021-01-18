@@ -226,6 +226,7 @@
     <Compile Include="Models\envios.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EnviosVenUsu.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>

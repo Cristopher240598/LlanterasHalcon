@@ -13,16 +13,16 @@
 <table class="table">
     <tr>
         <th>
+            No. de envío
+        </th>
+        <th>
             Fecha de creación
         </th>
         <th>
-            Fecha de última actualización
+            Última actualización
         </th>
         <th>
             Estado
-        </th>
-        <th>
-            Paquetería
         </th>
         <th>
             No. de venta
@@ -32,37 +32,30 @@
         </th>
     </tr>
 
-    @*@foreach (var item in Model)
-    {*@
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
-                04/05/2020
-                @*@Html.DisplayFor(modelItem => item.fechaCreacion)*@
+                NE-@Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                06/05/2020
-                @*@Html.DisplayFor(modelItem => item.fechaEnvio)*@
+                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.fechaCreacion))
             </td>
             <td>
-                En ruta de entrega
-                @*@Html.DisplayFor(modelItem => item.estado)*@
+                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.fechaEnvio))
             </td>
             <td>
-                DHL
-                @*@Html.DisplayFor(modelItem => item.paqueterias.nombre)*@
+                @Html.DisplayFor(modelItem => item.estado)
             </td>
             <td>
-                NV21
-                @*@Html.DisplayFor(modelItem => item.ventas.Id)*@
+                NV-@Html.DisplayFor(modelItem => item.ventas.Id)
             </td>
             <td>
-                <a class="link-item">Editar</a>|<a class="link-item">Detalles</a>|<a class="link-item">Eliminar</a>
-                @*
-                    @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "link-item" }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.Id }, new { @class = "link-item" }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "link-item" })
             </td>
         </tr>
-    @*}*@
+    }
 
 </table>
