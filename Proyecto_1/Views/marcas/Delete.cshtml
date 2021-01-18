@@ -7,9 +7,9 @@
 
 <h2>Eliminar</h2>
 
-<h3>Estas seguro de eliminar esto?</h3>
+<h3>Estas seguro de eliminar esta marca?</h3>
 <div>
-    <h4>marcas</h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -25,7 +25,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.imagen)
+            <img style="margin:14px 0px;" class="border" src="~/Imagenes/Marcas/@ViewData["imagenM"]" width="165" />
         </dd>
 
     </dl>
@@ -34,7 +34,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
             @Html.ActionLink("Ver marcas", "Index")
         </div>
     }

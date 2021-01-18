@@ -5,55 +5,79 @@
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalle del envío</h2>
 
-<div>
-    <h4>envios</h4>
+<div class="form-horizontal" style="width:700px;">
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaCreacion)
-        </dt>
+        <div class="row">
+            <div class="col">
+                <p><strong>Número de envío:</strong></p>
+                <p>NE-@ViewBag.listaEnvios.Id</p>
+            </div>
+            <div class="col">
+                <p><strong>Fecha de creación:</strong></p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", ViewBag.listaEnvios.fechaCreacion))</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Última actualización:</strong></p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", ViewBag.listaEnvios.fechaActualizacion))</p>
+            </div>
+            <div class="col">
+                <p><strong>Paquetería:</strong></p>
+                <p>@ViewBag.listaEnvios.paqueteria</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Número de venta:</strong></p>
+                <p>NV-@ViewBag.listaEnvios.id_venta</p>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.fechaCreacion)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.fechaEnvio)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.fechaEnvio)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.estado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.estado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.paqueterias.nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.paqueterias.nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ventas.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ventas.Id)
-        </dd>
-
+            <div class="col">
+                <p><strong>Fecha de venta:</strong></p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", ViewBag.listaEnvios.fechaVenta))</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Total de venta:</strong></p>
+                <p>$ @ViewBag.listaEnvios.total</p>
+            </div>
+            <div class="col">
+                <p><strong>Estado:</strong></p>
+                <p>@ViewBag.listaEnvios.estadoEnvio</p>
+            </div>
+        </div>
+        <div class="row">
+            <div style="width:100%;">
+                <p><strong>INFORMACIÓN DE CONTACTO</strong></p>
+            </div>
+            <div style="width:100%;">
+                <p><strong>Entregar a:</strong></p>
+                <p>@ViewBag.listaEnvios.nombre @ViewBag.listaEnvios.apellidoPaterno @ViewBag.listaEnvios.apellidoMaterno</p>
+            </div>
+            <div style="width:100%;">
+                <p><strong>Dirección:</strong></p>
+                <p>@ViewBag.listaEnvios.cp @ViewBag.listaEnvios.estado @ViewBag.listaEnvios.municipio @ViewBag.listaEnvios.colonia @ViewBag.listaEnvios.calle @ViewBag.listaEnvios.numeroCasa</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Correo electrónico:</strong></p>
+                <p>@ViewBag.listaEnvios.correoElectronico</p>
+            </div>
+            <div class="col">
+                <p><strong>Teléfono:</strong></p>
+                <p>@ViewBag.listaEnvios.telefono</p>
+            </div>
+        </div>
     </dl>
+
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = ViewBag.listaEnvios.Id }, new { @class = "link-item" }) |
+    @Html.ActionLink("Ver envíos", "Index", new { id = "" }, new { @class = "link-item" })
 </p>

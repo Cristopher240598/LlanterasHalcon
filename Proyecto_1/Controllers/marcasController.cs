@@ -34,7 +34,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
             return View(marcas);
         }
 
@@ -59,6 +59,8 @@ namespace Proyecto_1.Controllers
                 imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
                 img = nombreImagen;
                 marcas.imagen = img;
+
+
                 db.marcas.Add(marcas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +81,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
 
             return View(marcas);
         }
@@ -92,19 +94,20 @@ namespace Proyecto_1.Controllers
         public ActionResult Edit([Bind(Include = "Id,nombre")] marcas marcas, HttpPostedFileBase imagenMarca)
         {
             string img = "";
-            string imgAnterior;
+            string imgAnteriorm;
             if (ModelState.IsValid)
             {
                 int id = marcas.Id;
                 var marca = db.marcas.Find(id);
-                imgAnterior = marca.imagen;
+                imgAnteriorm = marca.imagen;
+
                 if (imagenMarca != null && imagenMarca.ContentLength > 0)
                 {
                     string nombreImagen = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + imagenMarca.FileName).ToLower();
                     imagenMarca.SaveAs(Server.MapPath("~/Imagenes/Marcas/" + nombreImagen));
                     img = nombreImagen;
                     marca.imagen = img;
-                    System.IO.File.Delete(Path.Combine(@"C:\Users\Carlos\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", imgAnterior));
+                    System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", imgAnteriorm));
                 }
 
              //   db.Entry(marcas).State = EntityState.Modified;
@@ -126,7 +129,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["imagenL"] = marcas.imagen;
+            ViewData["imagenM"] = marcas.imagen;
             return View(marcas);
         }
 
@@ -136,7 +139,7 @@ namespace Proyecto_1.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             marcas marcas = db.marcas.Find(id);
-            System.IO.File.Delete(Path.Combine(@"C:\Users\Carlos\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", marcas.imagen));
+            System.IO.File.Delete(Path.Combine(@"C:\Users\ivans\source\repos\Cristopher240598\LlanterasHalcon\Proyecto_1\Imagenes\Marcas", marcas.imagen));
             
             db.marcas.Remove(marcas);
             db.SaveChanges();
