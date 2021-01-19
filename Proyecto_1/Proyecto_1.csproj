@@ -231,6 +231,7 @@
     <Compile Include="Models\envios.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EnviosVenUsu.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemPedido.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\llantasSubCat.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\marcas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -417,26 +419,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Imagenes\llantas\20210111115345-avante.png" />
-    <Content Include="Imagenes\llantas\20210115125424-137247800_1257119434705051_9216704774984266493_n %282%29.jpg" />
-    <Content Include="Imagenes\llantas\20210117191341-llanta1.jpg" />
-    <Content Include="Imagenes\llantas\20210117191423-llanta2.jpg" />
-    <Content Include="Imagenes\llantas\20210117191501-llanta3.jpg" />
-    <Content Include="Imagenes\llantas\20210117191623-llanta3.jpg" />
-    <Content Include="Imagenes\llantas\llanta1.jpg" />
-    <Content Include="Imagenes\llantas\llanta2.jpg" />
-    <Content Include="Imagenes\llantas\llanta3.jpg" />
-    <Content Include="Imagenes\Marcas\20210106154742-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210106155137-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210106155303-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210107091106-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107091915-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210107092115-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107092610-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107092917-credencial.jfif" />
-    <Content Include="Imagenes\Marcas\20210107093217-pirelli-logo.png" />
-    <Content Include="Imagenes\Marcas\20210107093314-5860f81a4fc7f3474eb80db5.png" />
-    <Content Include="Imagenes\Marcas\20210107093433-5860f81a4fc7f3474eb80db5.png" />
     <Content Include="Models\Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -609,6 +591,8 @@
     <Content Include="Views\compras\Edit.cshtml" />
     <Content Include="Views\compras\Index.cshtml" />
     <Content Include="Views\Pedidos\historialPedidos.cshtml" />
+    <Content Include="Views\Pago\Paypal.cshtml" />
+>>>>>>>>> Temporary merge branch 2
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
