@@ -11,12 +11,13 @@ namespace Proyecto_1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class envios
     {
         public int Id { get; set; }
         public System.DateTime fechaCreacion { get; set; }
-        public Nullable<System.DateTime> fechaEnvio { get; set; }
+        public Nullable<System.DateTime> fechaEnvio { get; set; }                
         public string estado { get; set; }
         public int id_paqueteria { get; set; }
         public int id_venta { get; set; }

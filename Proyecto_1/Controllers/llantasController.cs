@@ -25,6 +25,7 @@ namespace Proyecto_1.Controllers
                               join m in db.marcas on ll.id_marca equals m.Id
                               join s in db.subcategorias on ll.id_subcategoria equals s.Id
                               join c in db.categorias on s.id_categoria equals c.Id
+                              orderby ll.modelo
                               select new llantasSubCat
                               {
                                   Id = ll.Id,
@@ -158,7 +159,7 @@ namespace Proyecto_1.Controllers
             ViewBag.id_marca = new SelectList(db.marcas, "Id", "nombre", llantas.id_marca);
             ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial", llantas.id_proveedor);
             ViewBag.id_subcategoria = new SelectList(db.subcategorias, "Id", "nombre", llantas.id_subcategoria);
-
+            ViewBag.id_categoria = new SelectList(db.categorias, "Id", "nombre");
             return View(llantas);
         }
 

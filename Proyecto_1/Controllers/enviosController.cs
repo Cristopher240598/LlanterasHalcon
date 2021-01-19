@@ -208,6 +208,44 @@ namespace Proyecto_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (envios.estado == null || envios.estado.Equals(""))
+                {
+                    List<EnviosVenUsu> lstEnvios;
+                    using (db)
+                    {
+                        lstEnvios = (from en in db.envios
+                                     join p in db.paqueterias on en.id_paqueteria equals p.Id
+                                     join v in db.ventas on en.id_venta equals v.Id
+                                     join u in db.usuarios on v.id_usuario equals u.Id
+                                     where en.Id == envios.Id
+                                     select new EnviosVenUsu
+                                     {
+                                         Id = en.Id,
+                                         fechaCreacion = en.fechaCreacion,
+                                         fechaActualizacion = en.fechaEnvio,
+                                         estadoEnvio = en.estado,
+                                         paqueteria = p.nombre,
+                                         id_venta = en.id_venta,
+                                         fechaVenta = v.fechaVenta,
+                                         total = v.total,
+                                         id_usuario = v.id_usuario,
+                                         nombre = u.nombre,
+                                         apellidoPaterno = u.apellidoPaterno,
+                                         apellidoMaterno = u.apellidoMaterno,
+                                         correoElectronico = u.correoElectronico,
+                                         telefono = u.telefono,
+                                         estado = u.estado,
+                                         municipio = u.municipio,
+                                         colonia = u.colonia,
+                                         calle = u.calle,
+                                         numeroCasa = u.numeroCasa,
+                                         cp = u.cp
+                                     }).ToList();
+                    }
+                    ViewBag.listaEnvios = lstEnvios.First();
+                    ModelState.AddModelError("mensajeEstadoE", "Ingrese un estado de envío");
+                    return View(envios);
+                }
                 int id = envios.Id;
                 var envio = db.envios.Find(id);
                 DateTime hoy = DateTime.Now;
