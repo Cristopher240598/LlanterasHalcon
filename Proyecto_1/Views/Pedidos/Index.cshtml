@@ -1,16 +1,10 @@
-﻿
-@using Proyecto_1.Models
+﻿@using Proyecto_1.Models;
 @{
-    ViewBag.Title = "historialPedidos";
-
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string c = Session["usr"].ToString();
-
-    string fO = Session["fechaOrden"].ToString();
-    string fE = Session["fPEntrega"].ToString();
 }
 
-
+<h2>Historial de Pedidos</h2>
 
 <main>
     <section>
@@ -20,19 +14,17 @@
                     <div class="row">
                         <div class="col">
                             <h2 class="section-heading">Historial de pedidos</h2>
-
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col text-left">
-                            <h4> Cliente: @c </h4>
-                        
-                            <h4> Fecha de orden: @fO </h4>
-                            <h4> Fecha de Entrega: @fE </h4>
+                            <p>Número de envío:</p>
+                            <p>Fecha de creación:</p>
+                            <p>Fecha de última actualización:</p>
+                            <p>Estado:</p>
+                            <p>Paqueteria:</p>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col">
                             <div class="table-responsive">
@@ -45,8 +37,6 @@
                                             <th>Cantidad</th>
                                             <th>Subtotal</th>
                                         </tr>
-
-
                                     </thead>
                                     @foreach (Item item in (List<Item>)Session["cart"])
                                     {
@@ -75,10 +65,10 @@
                                         </tr>
                                     }
                                 </table>
+
                             </div>
                         </div>
                     </div>
-                 
                 </div>
             </div>
         </div>
@@ -86,3 +76,45 @@
 </main>
 
 
+@*
+    <table class="table table-bordered table-responsive table-striped">
+        @{ if (Session["misPedidos"] != null)
+            {
+                foreach (PedidoCliente pedido in (List<PedidoCliente>)Session["misPedidos"])
+                {
+                    int idOrd = pedido.Orden.Id_orden;
+                    <tr>
+                        <td>Fecha: @pedido.Fecha</td>
+                        <td>Envio: @pedido.envio</td>
+                        <td>Entrega: @pedido.status</td>
+                    </tr>
+                    foreach (ItemPedido item in (List<ItemPedido>)Session["Pedido"])
+                    {
+                        if (item.idOrd == idOrd)
+                        {
+                    <tr>
+                        <td>@item.Product.nombre</td>
+                        <td><img class="img-responsive" src="~/Imagenes/llantas/@item.llantas.imagen"</td>
+                        <td>@item.Product.precio</td>
+                        <td>@item.Cantidad</td>
+                        <td>@(item.Product.precio * item.Cantidad)</td>
+                    </tr>
+                        }
+                    }
+
+                    <tr>
+                        <td aling="rigth" colspan="4">Total</td>
+                        <td>@pedido.Total</td>
+                    </tr>
+                    }
+
+
+
+                }
+
+            }
+
+        </table>
+*@
+<br>
+<a class="btn btn-warning" href="@Url.Action("Index", "Home")">Ir a la tienda</a>

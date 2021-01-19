@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "pagoNoAceptado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lo sentimos su pago no fue aceptado elija otra forma de pago</h2>
+
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                   
+                 
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <br /><br /><img src="~/Content/img/nook.png" height="75" /><br /><br />
+
+                            @using (Html.BeginForm("CrearOrden", "Pago", FormMethod.Get))
+                            {
+                                <input type="submit" value="Continuar" class="btn btn-default"/>
+                            }
+                        </div>
+
+
+                    </div>
+
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+

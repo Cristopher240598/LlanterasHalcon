@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Correcto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Correcto</h2>
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="section-heading">Pago Realizado</h2>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Puedes ver tu pedido dando click en tu nombre</p>
+
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <br /><br /><img src="~/Content/img/ok.png" height="75" /><br /><br />
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <br /><br /><img src="~/Content/img/bancos.png" height="35" /><img src="~/Content/img/paypal.png" height="35" /><br /><br />
+
+                            @Html.ActionLink("Volver", "Index", "Home", new { area = " " }, new { @class = "btn boton" })
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+

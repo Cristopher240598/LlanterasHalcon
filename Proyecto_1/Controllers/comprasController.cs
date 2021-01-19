@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -39,7 +40,7 @@ namespace Proyecto_1.Controllers
         // GET: compras/Create
         public ActionResult Create()
         {
-            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial");
+            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "Id");
             return View();
         }
 
@@ -52,12 +53,15 @@ namespace Proyecto_1.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                
                 db.compras.Add(compras);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial", compras.id_proveedor);
+            string fechaCreacion = DateTime.Today.ToShortDateString();
+            
+            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "Id", compras.id_proveedor);
             return View(compras);
         }
 
@@ -73,7 +77,7 @@ namespace Proyecto_1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial", compras.id_proveedor);
+            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "Id", compras.id_proveedor);
             return View(compras);
         }
 
@@ -90,7 +94,7 @@ namespace Proyecto_1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "razonSocial", compras.id_proveedor);
+            ViewBag.id_proveedor = new SelectList(db.proveedores, "Id", "Id", compras.id_proveedor);
             return View(compras);
         }
 

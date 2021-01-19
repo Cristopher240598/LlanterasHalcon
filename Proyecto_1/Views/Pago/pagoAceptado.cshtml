@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "pagoAceptado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gracias por su compra su pago ha sido procesado puede ver su pedido haciendo clic en su nombre </h2>
+
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+
+
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <br /><br /><img src="~/Content/img/ok.png" height="75" /><br /><br />
+
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                            {
+                                <input type="submit" value="Continuar" class="btn btn-default" />
+                            }
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,163 +1,131 @@
 ﻿@model Proyecto_1.Models.detallesCompras
-@using Proyecto_1.Models;
+
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
+    string fechaCreacion = DateTime.Today.ToShortDateString();
 }
 
 <h2>Crear compra</h2>
-@using (Html.BeginForm("Create", "detallesCompras", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 
+
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
 
-    <div class="form-horizontal">
-        
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="row">
-            <div class="col">
-                <div class="form-group text-left">
-                    <label>Cantidad:</label>
-                    @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @id = "tcantidad" } })
-                    @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
-                </div>
+<div class="form-horizontal">
 
-                <div class="form-group text-left">
-                    <label>Precio de compra:</label>
-                    @Html.EditorFor(model => model.precioCompra, new { htmlAttributes = new { @class = "form-control", @id = "precioCompra" } })
-                    @Html.ValidationMessageFor(model => model.precioCompra, "", new { @class = "text-danger" })
-                </div>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-                <div class="form-group text-left">
-                    <label>Precio de venta:</label>
-                    @Html.EditorFor(model => model.precioVenta, new { htmlAttributes = new { @class = "form-control", @id = "precioVenta" } })
-                    @Html.ValidationMessageFor(model => model.precioVenta, "", new { @class = "text-danger" })
-                </div>
+    <div class="form-group">
+        <label>Fecha: @fechaCreacion</label>
+    </div>
 
-                <div class="form-group text-left">
-                    <label>Categoría:</label>
-                    <select id="comboboxCategorias">
-                        <option value="-1">--- No seleccionada ---</option>
-                        @foreach (categorias categoria in ViewBag.categorias)
-                        {
-                            <option value="@categoria.Id">@categoria.nombre</option>
-                        }
-                    </select>
-                </div>
-                <div class="form-group text-left">
-                    <label>Subcategoría:</label>
-                    <select id="comboboxSubcategorias">
-                        <option value="-1">--- No seleccionada ---</option>
-                    </select>
-                </div>
-
-                <div class="form-group text-left">
-                    <label>Proveedores:</label>
-                    <select id="comboboxProveedores">
-                        <option value="-1">--- No seleccionada ---</option>
-                        @foreach (proveedores proveedores in ViewBag.proveedores)
-                        {
-                            <option value="@proveedores.Id">@proveedores.razonSocial</option>
-                        }
-                    </select>
-                </div>
-
-
-
-                <div class="form-group text-left">
-                    <label>Modelo:</label>
-                    @Html.DropDownList("id_llanta", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.id_llanta, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group text-center">
-
-                    <label id="labiva">iva: </label>
-                    <br>
-                    <label id="labsub">Subtotal: </label>
-                    <br>
-                    <label id="labtot">Total: </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <input type="submit" value="Agregar" class="btn boton" id="butonAgregar"/>
+    <div class="form-group text-left">      
+        <label>Cantidad:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @id = "tcantidad" } })
+            @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group text-left">
+        <label>Precio de compra:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.precioCompra, new { htmlAttributes = new { @class = "form-control", @id = "precioCompra" } })
+            @Html.ValidationMessageFor(model => model.precioCompra, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group text-left">
+        <label>Precio de venta</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.precioVenta, new { htmlAttributes = new { @class = "form-control", @id = "precioVenta" } })
+            @Html.ValidationMessageFor(model => model.precioVenta, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group text-left">
+        <label>Id de compra:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("id_compra", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_compra, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group text-left">
+        <label>Id de llanta:</label>
+        <div class="col-md-10">
+            @Html.DropDownList("id_llanta", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.id_llanta, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group text-center">
+
+        <label id="labiva">iva: </label>
+        <br>
+        <label id="labsub">Subtotal: </label>
+        <br>
+        <label id="labtot">Total: </label>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Crear" class="btn boton" id="butonAgregar" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
     @Html.ActionLink("Ver compras", "Index", new { id = "" }, new { @class = "link-item" })
 </div>
 
-
 <script type="text/javascript">
 
-    var boolcantidad = false;
-    var boolprecioc = false;
-    var iva = 0;
-    var subtotal = 0;
-    var total = 0;
+        var boolcantidad = false;
+        var boolprecioc = false;
+        var iva = 0;
+        var subtotal = 0;
+        var total = 0;
 
-    $(document).ready(function () {
-        //Cargar subcategorías dada una categoría
-        $('#comboboxCategorias').on('change', function() {
-            var idCategoria = $('#comboboxCategorias option:selected').val();
-            $.ajax({
-            type: 'GET',
-            data: { idCategoria: idCategoria},
-            url: '@Url.Action("ObtenerSubcategorias", "Home")',
-            success: function (categorias) {
-                var s = '<option value="-1">--- No seleccionada ---</option>';
-                for (var i = 0; i < categorias.length; i++)
-                {
-                    s += '<option value="' + categorias[i].id + '">' + categorias[i].nombre + '</option>';
-                }
-                $('#comboboxSubcategorias').html(s);
-            }
+
+        $(document).ready(function () {
+
+            //Operacion
+            $('#tcantidad').on('change', function () {
+                refresh();
+                calculadora();
             });
-        });
 
-        
-  
+            $('#precioCompra').on('change', function () {
+                refresh();
+                calculadora();
+            });
+            $('#precioVenta').on('change', function () {
+                refresh();
 
-
-
-    //Operacion
-    $('#tcantidad').on('change', function () {
-        refresh();
-        calculadora();
-    });
-
-    $('#precioCompra').on('change', function () {
-        refresh();
-        calculadora();
-    });
-
-    $('#precioVenta').on('change', function () {
-        refresh();
-     
-    });
+            });
 
 
+            //Validar datos
+            $('#butonAgregar').click(function () {
 
-    //Validar datos
-        $('#butonAgregar').click(function () {
-        var idCategoria = $('#comboboxCategorias option:selected').val();
-        var idSubcategoria = $('#comboboxSubcategorias option:selected').val();
-        var idProveedoress = $('#comboboxProveedores option:selected').val();
-        var precioCompra = $('#precioCompra').val();
-        var precioVenta = $('#precioVenta').val();
-        if (idCategoria != -1) {
-            if (idSubcategoria != -1) {
+
+                var idProveedoress = $('#comboboxProveedores option:selected').val();
+                var precioCompra = $('#precioCompra').val();
+                var precioVenta = $('#precioVenta').val();
+
+
                 if (idProveedoress != -1) {
                     if (boolcantidad == true && boolprecioc == true) {
                         if (precioVenta > 0) {
                             if (precioCompra < precioVenta) {
-                                
-                              //  alert('subtotal: ' + subtotal + '   Iva:  ' + iva + '   Total:  ' + total);
+
+                                alert('subtotal: ' + subtotal + '   Iva:  ' + iva + '   Total:  ' + total);
                             } else {
                                 alert('Precio de compra es menor al precio de venta');
                             }
@@ -165,64 +133,63 @@
                             alert('Precio de venta incorrecto');
                         }
                     } else {
-                        alert('La cantidad y/o precio de compra deben que ser mayor que cero');
-                    }      
-                    } else {
-                        alert('Error al introducir el proveedor');
+                        alert('La cantidad y/o el costo deben que ser mayor que cero');
                     }
+                } else {
+                    alert('Error al introducir el proveedor');
+                }
+
+
+            });
+
+        });
+
+
+
+
+
+        //'Refrescar valores
+        function refresh() {
+            var cantidad = $('#tcantidad').val();
+            var precioc = $('#precioCompra').val();
+
+
+            if (cantidad > 0) {
+                boolcantidad = true;
             } else {
-                alert('Error. Selecciona una subcategoría');
+                boolcantidad = false;
+                iva = 0;
+                subtotal = 0;
+                total = 0;
+
             }
-        } else {
-            alert('Error. Selecciona una categoría');
-        }
-    });
-
- });
-
-
-    //'Refrescar valores
-    function refresh() {
-        var cantidad = $('#tcantidad').val();
-        var precioc = $('#precioCompra').val();
-       
-
-        if (cantidad > 0) {
-            boolcantidad = true;
-        } else {
-            boolcantidad = false;
-             iva = 0;
-             subtotal = 0;
-             total = 0;
+            if (precioc > 0) {
+                boolprecioc = true;
+            } else {
+                boolprecioc = false;
+                iva = 0;
+                subtotal = 0;
+                total = 0;
+            }
 
         }
-        if (precioc > 0) {
-            boolprecioc = true;
-        } else {
-            boolprecioc = false;
-            iva = 0;
-            subtotal = 0;
-            total = 0;
-        }
-       
-    }
-    //
-    function calculadora() {
-        var cantidad = $('#tcantidad').val();
-        var precioc = $('#precioCompra').val();
+        //
+        function calculadora() {
+            var cantidad = $('#tcantidad').val();
+            var precioc = $('#precioCompra').val();
 
-        if (boolcantidad = true) {
-            if (boolprecioc = true) {
+            if (boolcantidad = true) {
+                if (boolprecioc = true) {
 
-               subtotal = precioc * cantidad;
-               iva = subtotal * .16;
-               total = subtotal + iva;
-                
-                $('#labiva').html('iva: ' + iva);
-                $('#labsub').html('subtotal: ' + subtotal);
-                $('#labtot').html('total: ' + total);
+                    subtotal = precioc * cantidad;
+                    iva = subtotal * .16;
+                    total = subtotal + iva;
+
+                    $('#labiva').html('iva: ' + iva);
+                    $('#labsub').html('subtotal: ' + subtotal);
+                    $('#labtot').html('total: ' + total);
+                }
             }
         }
-    }
-   
+
 </script>

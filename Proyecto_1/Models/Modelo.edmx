@@ -4,384 +4,384 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LlanteraModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="LlanteraModelStoreContainer">
-    <EntitySet Name="categorias" EntityType="LlanteraModel.Store.categorias" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="compras" EntityType="LlanteraModel.Store.compras" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="detallesCompras" EntityType="LlanteraModel.Store.detallesCompras" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="detallesVentas" EntityType="LlanteraModel.Store.detallesVentas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="envios" EntityType="LlanteraModel.Store.envios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="llantas" EntityType="LlanteraModel.Store.llantas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="marcas" EntityType="LlanteraModel.Store.marcas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="paqueterias" EntityType="LlanteraModel.Store.paqueterias" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="proveedores" EntityType="LlanteraModel.Store.proveedores" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="roles" EntityType="LlanteraModel.Store.roles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="subcategorias" EntityType="LlanteraModel.Store.subcategorias" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="usuarios" EntityType="LlanteraModel.Store.usuarios" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ventas" EntityType="LlanteraModel.Store.ventas" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK__subcatego__id_ca__75A278F5" Association="LlanteraModel.Store.FK__subcatego__id_ca__75A278F5">
-      <End Role="categorias" EntitySet="categorias" />
-      <End Role="subcategorias" EntitySet="subcategorias" />
-    </AssociationSet>
-    <AssociationSet Name="FK__compras__id_prov__76969D2E" Association="LlanteraModel.Store.FK__compras__id_prov__76969D2E">
-      <End Role="proveedores" EntitySet="proveedores" />
-      <End Role="compras" EntitySet="compras" />
-    </AssociationSet>
-    <AssociationSet Name="FK__detallesC__id_co__778AC167" Association="LlanteraModel.Store.FK__detallesC__id_co__778AC167">
-      <End Role="compras" EntitySet="compras" />
-      <End Role="detallesCompras" EntitySet="detallesCompras" />
-    </AssociationSet>
-    <AssociationSet Name="FK__detallesC__id_ll__787EE5A0" Association="LlanteraModel.Store.FK__detallesC__id_ll__787EE5A0">
-      <End Role="llantas" EntitySet="llantas" />
-      <End Role="detallesCompras" EntitySet="detallesCompras" />
-    </AssociationSet>
-    <AssociationSet Name="FK__detallesV__id_ll__797309D9" Association="LlanteraModel.Store.FK__detallesV__id_ll__797309D9">
-      <End Role="llantas" EntitySet="llantas" />
-      <End Role="detallesVentas" EntitySet="detallesVentas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__detallesV__id_ve__7A672E12" Association="LlanteraModel.Store.FK__detallesV__id_ve__7A672E12">
-      <End Role="ventas" EntitySet="ventas" />
-      <End Role="detallesVentas" EntitySet="detallesVentas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__envios__id_paque__160F4887" Association="LlanteraModel.Store.FK__envios__id_paque__160F4887">
-      <End Role="paqueterias" EntitySet="paqueterias" />
-      <End Role="envios" EntitySet="envios" />
-    </AssociationSet>
-    <AssociationSet Name="FK__envios__id_venta__17036CC0" Association="LlanteraModel.Store.FK__envios__id_venta__17036CC0">
-      <End Role="ventas" EntitySet="ventas" />
-      <End Role="envios" EntitySet="envios" />
-    </AssociationSet>
-    <AssociationSet Name="FK__llantas__id_marc__7F2BE32F" Association="LlanteraModel.Store.FK__llantas__id_marc__7F2BE32F">
-      <End Role="marcas" EntitySet="marcas" />
-      <End Role="llantas" EntitySet="llantas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__llantas__id_prov__7D439ABD" Association="LlanteraModel.Store.FK__llantas__id_prov__7D439ABD">
-      <End Role="proveedores" EntitySet="proveedores" />
-      <End Role="llantas" EntitySet="llantas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__llantas__id_subc__7E37BEF6" Association="LlanteraModel.Store.FK__llantas__id_subc__7E37BEF6">
-      <End Role="subcategorias" EntitySet="subcategorias" />
-      <End Role="llantas" EntitySet="llantas" />
-    </AssociationSet>
-    <AssociationSet Name="FK__usuarios__id_rol__19DFD96B" Association="LlanteraModel.Store.FK__usuarios__id_rol__19DFD96B">
-      <End Role="roles" EntitySet="roles" />
-      <End Role="usuarios" EntitySet="usuarios" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ventas__id_usuar__1AD3FDA4" Association="LlanteraModel.Store.FK__ventas__id_usuar__1AD3FDA4">
-      <End Role="usuarios" EntitySet="usuarios" />
-      <End Role="ventas" EntitySet="ventas" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="categorias">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="compras">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fecha" Type="datetime" Nullable="false" />
-    <Property Name="iva" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="subtotal" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="total" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="id_proveedor" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="detallesCompras">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="precioCompra" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="precioVenta" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="id_compra" Type="int" Nullable="false" />
-    <Property Name="id_llanta" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="detallesVentas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="cantidad" Type="int" Nullable="false" />
-    <Property Name="precioCompra" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="precioVenta" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="id_llanta" Type="int" Nullable="false" />
-    <Property Name="id_venta" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="envios">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
-    <Property Name="fechaEnvio" Type="datetime" Nullable="true" />
-    <Property Name="estado" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="id_paqueteria" Type="int" Nullable="false" />
-    <Property Name="id_venta" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="llantas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="modelo" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="rin" Type="int" Nullable="false" />
-    <Property Name="ancho" Type="int" Nullable="false" />
-    <Property Name="perfil" Type="int" Nullable="false" />
-    <Property Name="carga" Type="int" Nullable="false" />
-    <Property Name="imagen" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="stock" Type="int" Nullable="false" />
-    <Property Name="existencia" Type="int" Nullable="false" />
-    <Property Name="precioVenta" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="precioCompra" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="ultActualizacion" Type="datetime" Nullable="false" />
-    <Property Name="id_proveedor" Type="int" Nullable="false" />
-    <Property Name="id_subcategoria" Type="int" Nullable="false" />
-    <Property Name="id_marca" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="marcas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="imagen" Type="nvarchar" Nullable="false" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="paqueterias">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="web" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="telefono" Type="nchar" Nullable="false" MaxLength="10" />
-  </EntityType>
-  <EntityType Name="proveedores">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="razonSocial" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="rfc" Type="nvarchar" Nullable="false" MaxLength="15" />
-    <Property Name="direccion" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="telefono" Type="nvarchar" Nullable="false" MaxLength="10" />
-    <Property Name="correoElectronico" Type="nvarchar" Nullable="false" MaxLength="80" />
-  </EntityType>
-  <EntityType Name="roles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="subcategorias">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="descripcion" Type="nvarchar" Nullable="false" MaxLength="100" />
-    <Property Name="id_categoria" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="usuarios">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nombre" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="apellidoPaterno" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="apellidoMaterno" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="telefono" Type="nvarchar" Nullable="false" MaxLength="10" />
-    <Property Name="correoElectronico" Type="nvarchar" Nullable="false" MaxLength="80" />
-    <Property Name="contrasenia" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="estado" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="municipio" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="colonia" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="calle" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="numeroCasa" Type="int" Nullable="true" />
-    <Property Name="cp" Type="int" Nullable="true" />
-    <Property Name="tarjetaCredito" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="tipoTarjeta" Type="nvarchar" Nullable="true" MaxLength="80" />
-    <Property Name="anio" Type="int" Nullable="true" />
-    <Property Name="mes" Type="int" Nullable="true" />
-    <Property Name="cvv" Type="int" Nullable="true" />
-    <Property Name="id_rol" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ventas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fechaVenta" Type="datetime" Nullable="false" />
-    <Property Name="subtotal" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="iva" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="total" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="id_usuario" Type="int" Nullable="false" />
-  </EntityType>
-  <Association Name="FK__subcatego__id_ca__75A278F5">
-    <End Role="categorias" Type="LlanteraModel.Store.categorias" Multiplicity="1" />
-    <End Role="subcategorias" Type="LlanteraModel.Store.subcategorias" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="categorias">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="subcategorias">
-        <PropertyRef Name="id_categoria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__compras__id_prov__76969D2E">
-    <End Role="proveedores" Type="LlanteraModel.Store.proveedores" Multiplicity="1" />
-    <End Role="compras" Type="LlanteraModel.Store.compras" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="proveedores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="compras">
-        <PropertyRef Name="id_proveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__detallesC__id_co__778AC167">
-    <End Role="compras" Type="LlanteraModel.Store.compras" Multiplicity="1" />
-    <End Role="detallesCompras" Type="LlanteraModel.Store.detallesCompras" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="compras">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="detallesCompras">
-        <PropertyRef Name="id_compra" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__detallesC__id_ll__787EE5A0">
-    <End Role="llantas" Type="LlanteraModel.Store.llantas" Multiplicity="1" />
-    <End Role="detallesCompras" Type="LlanteraModel.Store.detallesCompras" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="llantas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="detallesCompras">
-        <PropertyRef Name="id_llanta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__detallesV__id_ll__797309D9">
-    <End Role="llantas" Type="LlanteraModel.Store.llantas" Multiplicity="1" />
-    <End Role="detallesVentas" Type="LlanteraModel.Store.detallesVentas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="llantas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="detallesVentas">
-        <PropertyRef Name="id_llanta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__detallesV__id_ve__7A672E12">
-    <End Role="ventas" Type="LlanteraModel.Store.ventas" Multiplicity="1" />
-    <End Role="detallesVentas" Type="LlanteraModel.Store.detallesVentas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ventas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="detallesVentas">
-        <PropertyRef Name="id_venta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__envios__id_paque__160F4887">
-    <End Role="paqueterias" Type="LlanteraModel.Store.paqueterias" Multiplicity="1" />
-    <End Role="envios" Type="LlanteraModel.Store.envios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="paqueterias">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="envios">
-        <PropertyRef Name="id_paqueteria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__envios__id_venta__17036CC0">
-    <End Role="ventas" Type="LlanteraModel.Store.ventas" Multiplicity="1" />
-    <End Role="envios" Type="LlanteraModel.Store.envios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ventas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="envios">
-        <PropertyRef Name="id_venta" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__llantas__id_marc__7F2BE32F">
-    <End Role="marcas" Type="LlanteraModel.Store.marcas" Multiplicity="1" />
-    <End Role="llantas" Type="LlanteraModel.Store.llantas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="marcas">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="llantas">
-        <PropertyRef Name="id_marca" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__llantas__id_prov__7D439ABD">
-    <End Role="proveedores" Type="LlanteraModel.Store.proveedores" Multiplicity="1" />
-    <End Role="llantas" Type="LlanteraModel.Store.llantas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="proveedores">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="llantas">
-        <PropertyRef Name="id_proveedor" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__llantas__id_subc__7E37BEF6">
-    <End Role="subcategorias" Type="LlanteraModel.Store.subcategorias" Multiplicity="1" />
-    <End Role="llantas" Type="LlanteraModel.Store.llantas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="subcategorias">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="llantas">
-        <PropertyRef Name="id_subcategoria" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__usuarios__id_rol__19DFD96B">
-    <End Role="roles" Type="LlanteraModel.Store.roles" Multiplicity="1" />
-    <End Role="usuarios" Type="LlanteraModel.Store.usuarios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="roles">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="usuarios">
-        <PropertyRef Name="id_rol" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ventas__id_usuar__1AD3FDA4">
-    <End Role="usuarios" Type="LlanteraModel.Store.usuarios" Multiplicity="1" />
-    <End Role="ventas" Type="LlanteraModel.Store.ventas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="usuarios">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ventas">
-        <PropertyRef Name="id_usuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="LlanteraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="compras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="iva" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="id_proveedor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detallesCompras">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precioCompra" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="precioVenta" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="id_compra" Type="int" Nullable="false" />
+          <Property Name="id_llanta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="detallesVentas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" Nullable="false" />
+          <Property Name="precioCompra" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="precioVenta" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="id_llanta" Type="int" Nullable="false" />
+          <Property Name="id_venta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="envios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="fechaEnvio" Type="datetime" />
+          <Property Name="estado" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="id_paqueteria" Type="int" Nullable="false" />
+          <Property Name="id_venta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="llantas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modelo" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="rin" Type="int" Nullable="false" />
+          <Property Name="ancho" Type="int" Nullable="false" />
+          <Property Name="perfil" Type="int" Nullable="false" />
+          <Property Name="carga" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="stock" Type="int" Nullable="false" />
+          <Property Name="existencia" Type="int" Nullable="false" />
+          <Property Name="precioVenta" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="precioCompra" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="ultActualizacion" Type="datetime" Nullable="false" />
+          <Property Name="id_proveedor" Type="int" Nullable="false" />
+          <Property Name="id_subcategoria" Type="int" Nullable="false" />
+          <Property Name="id_marca" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marcas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="imagen" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paqueterias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="web" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="telefono" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proveedores">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="razonSocial" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="rfc" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="correoElectronico" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subcategorias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="id_categoria" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="apellidoPaterno" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="apellidoMaterno" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="correoElectronico" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="contrasenia" Type="nvarchar" MaxLength="80" />
+          <Property Name="estado" Type="nvarchar" MaxLength="80" />
+          <Property Name="municipio" Type="nvarchar" MaxLength="80" />
+          <Property Name="colonia" Type="nvarchar" MaxLength="80" />
+          <Property Name="calle" Type="nvarchar" MaxLength="80" />
+          <Property Name="numeroCasa" Type="int" />
+          <Property Name="cp" Type="int" />
+          <Property Name="tarjetaCredito" Type="nvarchar" MaxLength="80" />
+          <Property Name="tipoTarjeta" Type="nvarchar" MaxLength="80" />
+          <Property Name="anio" Type="int" />
+          <Property Name="mes" Type="int" />
+          <Property Name="cvv" Type="int" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ventas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fechaVenta" Type="datetime" Nullable="false" />
+          <Property Name="subtotal" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="iva" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="total" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__compras__id_prov__76969D2E">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="compras" Type="Self.compras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="compras">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detallesC__id_co__778AC167">
+          <End Role="compras" Type="Self.compras" Multiplicity="1" />
+          <End Role="detallesCompras" Type="Self.detallesCompras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="compras">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detallesCompras">
+              <PropertyRef Name="id_compra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detallesC__id_ll__787EE5A0">
+          <End Role="llantas" Type="Self.llantas" Multiplicity="1" />
+          <End Role="detallesCompras" Type="Self.detallesCompras" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="llantas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detallesCompras">
+              <PropertyRef Name="id_llanta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detallesV__id_ll__797309D9">
+          <End Role="llantas" Type="Self.llantas" Multiplicity="1" />
+          <End Role="detallesVentas" Type="Self.detallesVentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="llantas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detallesVentas">
+              <PropertyRef Name="id_llanta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detallesV__id_ve__7A672E12">
+          <End Role="ventas" Type="Self.ventas" Multiplicity="1" />
+          <End Role="detallesVentas" Type="Self.detallesVentas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ventas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="detallesVentas">
+              <PropertyRef Name="id_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__envios__id_paque__160F4887">
+          <End Role="paqueterias" Type="Self.paqueterias" Multiplicity="1" />
+          <End Role="envios" Type="Self.envios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="paqueterias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="envios">
+              <PropertyRef Name="id_paqueteria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__envios__id_venta__17036CC0">
+          <End Role="ventas" Type="Self.ventas" Multiplicity="1" />
+          <End Role="envios" Type="Self.envios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ventas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="envios">
+              <PropertyRef Name="id_venta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__llantas__id_marc__7F2BE32F">
+          <End Role="marcas" Type="Self.marcas" Multiplicity="1" />
+          <End Role="llantas" Type="Self.llantas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="marcas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="llantas">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__llantas__id_prov__7D439ABD">
+          <End Role="proveedores" Type="Self.proveedores" Multiplicity="1" />
+          <End Role="llantas" Type="Self.llantas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedores">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="llantas">
+              <PropertyRef Name="id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__llantas__id_subc__7E37BEF6">
+          <End Role="subcategorias" Type="Self.subcategorias" Multiplicity="1" />
+          <End Role="llantas" Type="Self.llantas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subcategorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="llantas">
+              <PropertyRef Name="id_subcategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__subcatego__id_ca__75A278F5">
+          <End Role="categorias" Type="Self.categorias" Multiplicity="1" />
+          <End Role="subcategorias" Type="Self.subcategorias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="categorias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="subcategorias">
+              <PropertyRef Name="id_categoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__usuarios__id_rol__19DFD96B">
+          <End Role="roles" Type="Self.roles" Multiplicity="1" />
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="usuarios">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ventas__id_usuar__1AD3FDA4">
+          <End Role="usuarios" Type="Self.usuarios" Multiplicity="1" />
+          <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuarios">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ventas">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LlanteraModelStoreContainer">
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="compras" EntityType="Self.compras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detallesCompras" EntityType="Self.detallesCompras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="detallesVentas" EntityType="Self.detallesVentas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="envios" EntityType="Self.envios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="llantas" EntityType="Self.llantas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marcas" EntityType="Self.marcas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="paqueterias" EntityType="Self.paqueterias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedores" EntityType="Self.proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subcategorias" EntityType="Self.subcategorias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__compras__id_prov__76969D2E" Association="Self.FK__compras__id_prov__76969D2E">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="compras" EntitySet="compras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detallesC__id_co__778AC167" Association="Self.FK__detallesC__id_co__778AC167">
+            <End Role="compras" EntitySet="compras" />
+            <End Role="detallesCompras" EntitySet="detallesCompras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detallesC__id_ll__787EE5A0" Association="Self.FK__detallesC__id_ll__787EE5A0">
+            <End Role="llantas" EntitySet="llantas" />
+            <End Role="detallesCompras" EntitySet="detallesCompras" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detallesV__id_ll__797309D9" Association="Self.FK__detallesV__id_ll__797309D9">
+            <End Role="llantas" EntitySet="llantas" />
+            <End Role="detallesVentas" EntitySet="detallesVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detallesV__id_ve__7A672E12" Association="Self.FK__detallesV__id_ve__7A672E12">
+            <End Role="ventas" EntitySet="ventas" />
+            <End Role="detallesVentas" EntitySet="detallesVentas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__envios__id_paque__160F4887" Association="Self.FK__envios__id_paque__160F4887">
+            <End Role="paqueterias" EntitySet="paqueterias" />
+            <End Role="envios" EntitySet="envios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__envios__id_venta__17036CC0" Association="Self.FK__envios__id_venta__17036CC0">
+            <End Role="ventas" EntitySet="ventas" />
+            <End Role="envios" EntitySet="envios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__llantas__id_marc__7F2BE32F" Association="Self.FK__llantas__id_marc__7F2BE32F">
+            <End Role="marcas" EntitySet="marcas" />
+            <End Role="llantas" EntitySet="llantas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__llantas__id_prov__7D439ABD" Association="Self.FK__llantas__id_prov__7D439ABD">
+            <End Role="proveedores" EntitySet="proveedores" />
+            <End Role="llantas" EntitySet="llantas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__llantas__id_subc__7E37BEF6" Association="Self.FK__llantas__id_subc__7E37BEF6">
+            <End Role="subcategorias" EntitySet="subcategorias" />
+            <End Role="llantas" EntitySet="llantas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__subcatego__id_ca__75A278F5" Association="Self.FK__subcatego__id_ca__75A278F5">
+            <End Role="categorias" EntitySet="categorias" />
+            <End Role="subcategorias" EntitySet="subcategorias" />
+          </AssociationSet>
+          <AssociationSet Name="FK__usuarios__id_rol__19DFD96B" Association="Self.FK__usuarios__id_rol__19DFD96B">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuarios" EntitySet="usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ventas__id_usuar__1AD3FDA4" Association="Self.FK__ventas__id_usuar__1AD3FDA4">
+            <End Role="usuarios" EntitySet="usuarios" />
+            <End Role="ventas" EntitySet="ventas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LlanteraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -399,7 +399,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fecha" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="iva" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="subtotal" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="total" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
@@ -438,8 +438,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="fechaEnvio" Type="DateTime" Precision="0" />
+          <Property Name="fechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fechaEnvio" Type="DateTime" Precision="3" />
           <Property Name="estado" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="id_paqueteria" Type="Int32" Nullable="false" />
           <Property Name="id_venta" Type="Int32" Nullable="false" />
@@ -462,7 +462,7 @@
           <Property Name="existencia" Type="Int32" Nullable="false" />
           <Property Name="precioVenta" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="precioCompra" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="ultActualizacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ultActualizacion" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="id_proveedor" Type="Int32" Nullable="false" />
           <Property Name="id_subcategoria" Type="Int32" Nullable="false" />
           <Property Name="id_marca" Type="Int32" Nullable="false" />
@@ -555,7 +555,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fechaVenta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaVenta" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="subtotal" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="iva" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="total" Type="Decimal" Precision="9" Scale="2" Nullable="false" />

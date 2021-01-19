@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c7605d6728bd466fb0b8a05e15b21648" Name="Diagram1">
+      <Diagram DiagramId="c7605d6728bd466fb0b8a05e15b21648" Name="Diagram1" ZoomLevel="96">
         <EntityTypeShape EntityType="LlanteraModel.categorias" Width="1.5" PointX="9.5" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="LlanteraModel.compras" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="LlanteraModel.detallesCompras" Width="1.5" PointX="2" PointY="0.5" IsExpanded="true" />

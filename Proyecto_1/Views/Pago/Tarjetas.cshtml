@@ -5,9 +5,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<h2>Pago con Tarjetas</h2>
-
 <main>
     <section>
         <div class="container">
@@ -15,68 +12,37 @@
                 <div class="col-lg-12 text-center">
                     <div class="row">
                         <div class="col">
-                            <h2 class="section-heading">Tarjetas</h2>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <div class="col col-md-4">
-                                <p>Pagar con tarjeta</p>
-                                <img src="~/Content/img/masterd.png" height="30" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-left">
-                                <p>Número de envío:</p>
-                                <p>Fecha de creación:</p>
-                                <p>Fecha de última actualización:</p>
-                                <p>Estado:</p>
-                                <p>Paqueteria:</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="table-responsive">
-                                    <table class="table ">
-                                        <thead>
-                                            <tr class="info">
-                                                <th>Modelo</th>
-                                                <th>Foto</th>
-                                                <th>Precio</th>
-                                                <th>Cantidad</th>
-                                                <th>Subtotal</th>
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <td>MXD</td>
-                                            <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
-                                            <td>$800.00</td>
-                                            <td>1</td>
-                                            <td>$800.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>MXD</td>
-                                            <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
-                                            <td>$800.00</td>
-                                            <td>1</td>
-                                            <td>$800.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>MXD</td>
-                                            <td><img src="~/Content/img/llanta1.jpg" width="100" /></td>
-                                            <td>$800.00</td>
-                                            <td>1</td>
-                                            <td>$800.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td align="right" colspan="4">Total:</td>
-                                            <td>$2400.00</td>
-                                        </tr>
-                                    </table>
+                            <h2 class="section-heading">Tarjeta</h2>
 
-                                </div>
-                            </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <p>Nombre del titular: </p>
+                            <input type="text" id="fname"><br>
+                            <p>Numero de Tarjeta:</p>
+                            <input type="text" id="fname"><br>
+                            <p>CVV:</p>
+                            <input type="text" id="fname"><br><br>
+                        </div>
+                    </div>
+
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col col-md-4">
+                            <br /><br /><img src="~/Content/img/bancos.png" height="35" /><br /><br />
+
+                            @Html.ActionLink("Pagar", "Correcto", "Pago", new { area = " " }, new { @class = "btn boton" })
+
+                       
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 </main>
+
+
