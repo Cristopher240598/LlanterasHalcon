@@ -19,11 +19,11 @@
         <div class="row">
             <div class="col">
                 <p><strong>Fecha de creación:</strong></p>
-                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.fechaCreacion))</p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @ViewBag.listaEnvios.fechaCreacion))</p>
             </div>
             <div class="col">
                 <p><strong>Última actualización:</strong></p>
-                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.fechaEnvio))</p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @ViewBag.listaEnvios.fechaActualizacion))</p>
             </div>
         </div>
         <div class="row">
@@ -33,7 +33,7 @@
             </div>
             <div class="col">
                 <p><strong>Número de venta:</strong></p>
-                <p>NV-@Html.DisplayFor(model => model.id_venta, new { htmlAttributes = new { @class = "form-control" } })</p>
+                <p>NV-@ViewBag.listaEnvios.id_venta</p>
             </div>
         </div>
         <div class="row">

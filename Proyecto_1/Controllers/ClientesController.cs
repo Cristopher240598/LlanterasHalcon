@@ -15,6 +15,7 @@ using System.Diagnostics;
 
 namespace Proyecto_1.Controllers
 {
+    [Authorize]
     public class ClientesController : Controller
     {
         private contextLlantera db = new contextLlantera();

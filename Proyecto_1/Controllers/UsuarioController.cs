@@ -18,23 +18,23 @@ namespace Proyecto_1.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 string correo = email;
-                int rol = -1;
+                int rol = 0;
 
 
                 using (db)
                 {
-                    var queryEmpleado = from st in db.usuarios
+                    var queryUsuario = from st in db.usuarios
                                         where st.correoElectronico == correo
                                         select st;
-                    var listaEmpleado = queryEmpleado.ToList();
-                    if (listaEmpleado.Count > 0)
+                    var listaUsuario = queryUsuario.ToList();
+                    if (listaUsuario.Count > 0)
                     {
-                        var empleado = queryEmpleado.FirstOrDefault<usuarios>();
-                        string[] nombres = empleado.nombre.ToString().Split(' ');
+                        var usuario = queryUsuario.FirstOrDefault<usuarios>();
+                        string[] nombres = usuario.nombre.ToString().Split(' ');
                         Session["name"] = nombres[0];
-                        Session["usr"] = empleado.nombre;
-                        Session["idUsuarioActual"] = empleado.Id;
-                        rol = empleado.id_rol;
+                        Session["usr"] = usuario.nombre;
+                        Session["idUsuarioActual"] = usuario.Id;
+                        rol = usuario.id_rol;
                     }
                 }
                 //1 = Admin CRUD empleados, paqueterías, proveedores, marcas
