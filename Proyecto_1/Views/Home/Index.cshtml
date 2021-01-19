@@ -3,7 +3,7 @@
     ViewBag.Title = "Home Page";
 }
 
-<header class="masthead" style="background-image:url(../../Content/img/fondoLlantas.jpeg);">
+<header class="masthead" style="background-image:url(../../Content/img/fondoLlantas.jpeg);">    
     <div class="container">
         <div class="intro-text">
             <div class="intro-heading text-uppercase"><span>Bienvenidos</span></div>
@@ -23,7 +23,7 @@
                 @foreach (marcas marca in ViewBag.marcas)
                  {               
                     <div class="col col-md-2 valor-columna">
-                        <span class="fa-stack fa-4x"><img src="~/Content/img/Logo.png" style="width: 100%;"></span>
+                        <span class="fa-stack fa-4x"><img src="~/Imagenes/Marcas/@marca.imagen" style="width: 100%;"></span>
                         <h4 class="section-heading">@marca.nombre</h4>
                     </div>   
                  }
@@ -44,7 +44,7 @@
                 aux++;
                 <div class="col col-md-4 valor-columna">
                     <span class="fa-stack fa-4x" style="width: 100%;">
-                        <img src="~/Content/img/llanta1.jpg" style="height: 100%;">
+                        <img src="~/Imagenes/llantas/@llanta.imagen" style="height: 100%;">
                     </span>
                     <h4 class="section-heading" style="font-size: 20px;">Modelo: @llanta.modelo</h4>
                     <h4 class="section-heading" style="font-size: 20px;margin-top: 0px;">Ventas: @ViewBag.llantasVentas[aux]</h4>
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="text-uppercase section-heading">contacto</h2>
+                    <h2 class="text-uppercase section-heading">Contacto</h2>
                 </div>
             </div>
             <div class="row text-center">

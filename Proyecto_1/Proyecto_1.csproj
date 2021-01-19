@@ -234,7 +234,6 @@
     <Compile Include="Models\EnviosVenUsu.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\LlantaContador.cs" />
     <Compile Include="Models\llantas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -262,7 +261,6 @@
     <Compile Include="Models\paqueterias.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PedidoCliente.cs" />
     <Compile Include="Models\ProdCarro.cs" />
     <Compile Include="Models\proveedores.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -396,8 +394,6 @@
     <Content Include="Content\estilos\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\estilos\fonts\fontawesome5-overrides.min.css" />
     <Content Include="Content\estilos\styles.min.css" />
-    <Content Include="Content\img\american_express.png" />
-    <Content Include="Content\img\bancos.png" />
     <Content Include="Content\img\continental.jpg" />
     <Content Include="Content\img\fondoLlantas.jpeg" />
     <Content Include="Content\img\general.png" />
@@ -407,18 +403,26 @@
     <Content Include="Content\img\Logo.png" />
     <Content Include="Content\img\LogoIcono.png" />
     <Content Include="Content\img\Logo_nombre.png" />
-    <Content Include="Content\img\mastercard.png" />
     <Content Include="Content\img\masterd.png" />
     <Content Include="Content\img\michelin.jpg" />
-    <Content Include="Content\img\ok.png" />
     <Content Include="Content\img\paypal.png" />
     <Content Include="Content\img\pirelli.png" />
-    <Content Include="Content\img\visa.jpg" />
     <Content Include="Content\js\jquery-3.5.1.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\Marcas\20210106154742-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210106155137-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210106155303-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210107091106-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107091915-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210107092115-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107092610-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107092917-credencial.jfif" />
+    <Content Include="Imagenes\Marcas\20210107093217-pirelli-logo.png" />
+    <Content Include="Imagenes\Marcas\20210107093314-5860f81a4fc7f3474eb80db5.png" />
+    <Content Include="Imagenes\Marcas\20210107093433-5860f81a4fc7f3474eb80db5.png" />
     <Content Include="Models\Modelo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Modelo.edmx</DependentUpon>
@@ -551,6 +555,12 @@
     <Content Include="Views\envios\Edit.cshtml" />
     <Content Include="Views\envios\Index.cshtml" />
     <Content Include="Views\Carro\Index.cshtml" />
+    <Content Include="Views\Pago\Index.cshtml" />
+    <Content Include="Views\detallesCompras\Create.cshtml" />
+    <Content Include="Views\detallesCompras\Delete.cshtml" />
+    <Content Include="Views\detallesCompras\Details.cshtml" />
+    <Content Include="Views\detallesCompras\Edit.cshtml" />
+    <Content Include="Views\detallesCompras\Index.cshtml" />
     <Content Include="Views\Provedores\Index.cshtml" />
     <Content Include="Views\Provedores\Create.cshtml" />
     <Content Include="Views\Provedores\Details.cshtml" />
@@ -573,29 +583,18 @@
     <Content Include="Views\marcas\Details.cshtml" />
     <Content Include="Views\marcas\Edit.cshtml" />
     <Content Include="Views\marcas\Index.cshtml" />
-    <Content Include="Views\Pago\Tarjetas.cshtml" />
-    <Content Include="Views\Pedidos\Index.cshtml" />
-    <Content Include="Views\Pago\Paypal.cshtml" />
-    <Content Include="Views\Pago\Correcto.cshtml" />
-    <Content Include="Views\Pago\CrearOrden.cshtml" />
-    <Content Include="Views\Pago\pagoNoAceptado.cshtml" />
-    <Content Include="Views\Pago\pagoAceptado.cshtml" />
-    <Content Include="Views\detallesCompras\Create.cshtml" />
-    <Content Include="Views\detallesCompras\Delete.cshtml" />
-    <Content Include="Views\detallesCompras\Details.cshtml" />
-    <Content Include="Views\detallesCompras\Edit.cshtml" />
-    <Content Include="Views\detallesCompras\Index.cshtml" />
     <Content Include="Views\compras\Create.cshtml" />
     <Content Include="Views\compras\Delete.cshtml" />
     <Content Include="Views\compras\Details.cshtml" />
     <Content Include="Views\compras\Edit.cshtml" />
     <Content Include="Views\compras\Index.cshtml" />
+    <Content Include="Views\Pago\Tarjetas.cshtml" />
     <Content Include="Views\Pedidos\historialPedidos.cshtml" />
     <Content Include="Views\Pago\Paypal.cshtml" />
->>>>>>>>> Temporary merge branch 2
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Imagenes\llantas\" />
     <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>

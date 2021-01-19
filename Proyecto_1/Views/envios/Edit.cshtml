@@ -5,66 +5,85 @@
     Layout = "~/Views/Shared/_LayoutCompras.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Editar envío</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>envios</h4>
+
+    <div class="form-horizontal" style="width:700px;">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.fechaCreacion, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaCreacion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fechaCreacion, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col">
+                <p><strong>Fecha de creación:</strong></p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.fechaCreacion))</p>
             </div>
+            <div class="col">
+                <p><strong>Última actualización:</strong></p>
+                <p>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", Model.fechaEnvio))</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Paquetería:</strong></p>
+                <p>@ViewBag.listaEnvios.paqueteria</p>
+            </div>
+            <div class="col">
+                <p><strong>Número de venta:</strong></p>
+                <p>NV-@Html.DisplayFor(model => model.id_venta, new { htmlAttributes = new { @class = "form-control" } })</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Fecha de venta:</strong></p>
+                @Convert.ToString(string.Format("{0:dd/MM/yyyy}", @ViewBag.listaEnvios.fechaVenta))
+                <p></p>
+            </div>
+            <div class="col">
+                <p><strong>Total de venta:</strong></p>
+                <p>$ @ViewBag.listaEnvios.total</p>
+            </div>
+        </div>
+        <div class="row">
+            <div style="width:100%;">
+                <p><strong>INFORMACIÓN DE CONTACTO</strong></p>
+            </div>
+            <div style="width:100%;">
+                <p><strong>Entregar a:</strong></p>
+                <p>@ViewBag.listaEnvios.nombre @ViewBag.listaEnvios.apellidoPaterno @ViewBag.listaEnvios.apellidoMaterno</p>
+            </div>
+            <div style="width:100%;">
+                <p><strong>Dirección:</strong></p>
+                <p>@ViewBag.listaEnvios.cp @ViewBag.listaEnvios.estado @ViewBag.listaEnvios.municipio @ViewBag.listaEnvios.colonia @ViewBag.listaEnvios.calle @ViewBag.listaEnvios.numeroCasa</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p><strong>Correo electrónico:</strong></p>
+                <p>@ViewBag.listaEnvios.correoElectronico</p>
+            </div>
+            <div class="col">
+                <p><strong>Teléfono:</strong></p>
+                <p>@ViewBag.listaEnvios.telefono</p>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal" style="padding: 0px 175px;">
+        <div class="form-group text-left">
+            <label>Estado:</label>
+            @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessage("mensajeEstadoE", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fechaEnvio, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.fechaEnvio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.fechaEnvio, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.estado, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_paqueteria, "id_paqueteria", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("id_paqueteria", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_paqueteria, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.id_venta, "id_venta", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("id_venta", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.id_venta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+            <input type="submit" value="Guardar cambios" class="btn boton" />
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ver envíos", "Index", new { id = "" }, new { @class = "link-item" })
 </div>

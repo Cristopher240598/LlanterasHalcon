@@ -17,22 +17,13 @@
                 Modelo
             </th>
             <th>
-                Rin
-            </th>
-            <th>
-                Ancho
-            </th>
-            <th>
-                Stock
-            </th>
-            <th>
-                Existencia
-            </th>
-            <th>
                 Precio de venta
             </th>
             <th>
                 Marca
+            </th>
+            <th>
+                Categoría
             </th>
             <th>
                 Subcategoría
@@ -42,32 +33,23 @@
             </th>
         </tr>
 
-        @foreach (var item in Model)
+        @foreach (var item in ViewBag.listaLlantas)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.modelo)
+                    @item.modelo
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.rin)"
+                    $@item.precioVenta
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ancho)
+                    @item.marca
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.stock)
+                    @item.categoria
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.existencia)
-                </td>
-                <td>
-                    $@Html.DisplayFor(modelItem => item.precioVenta)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.marcas.nombre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.subcategorias.nombre)
+                    @item.subcategoria
                 </td>
                 <td>
                     @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "link-item" }) |

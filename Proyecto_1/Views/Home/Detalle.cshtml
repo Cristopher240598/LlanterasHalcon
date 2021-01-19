@@ -5,88 +5,97 @@
 }
 <main>
     <h2>Detalles de la llanta</h2>
-    <br /><br /><br /><br /><br />
+    <br/><br/>
     <div>
-        <hr />
-        <dl class="dl-horizontal">
-            <div class="row" style="width:700px;">
-                <div class="col text-left">
-                    <dt>
-                        Modelo
-                    </dt>
+        <center>
+            <hr />
+            <dl class="dl-horizontal">
+                <div class="row" style="width:700px;">
+                    <div class="col text-left">
+                        <dt>
+                            Modelo
+                        </dt>
 
-                    <dd>
-                        @ViewBag.detalleModelo
-                    </dd>
+                        <dd>
+                            @ViewBag.detalleModelo
+                        </dd>
 
-                    <dt>
-                        Descripción
-                    </dt>
+                        <dt>
+                            Descripción
+                        </dt>
 
-                    <dd>
-                        @ViewBag.detalleDescripcion
-                    </dd>
+                        <dd>
+                            @ViewBag.detalleDescripcion
+                        </dd>
 
-                    <dt>
-                        Rin
-                    </dt>
+                        <dt>
+                            Rin
+                        </dt>
 
-                    <dd>
-                        @ViewBag.detalleRin"
-                    </dd>
+                        <dd>
+                            @ViewBag.detalleRin"
+                        </dd>
 
-                    <dt>
-                        Ancho
-                    </dt>
+                        <dt>
+                            Ancho
+                        </dt>
 
-                    <dd>
-                        @ViewBag.detalleAncho
-                    </dd>
+                        <dd>
+                            @ViewBag.detalleAncho
+                        </dd>
 
-                    <dt>
-                        Perfil
-                    </dt>
+                        <dt>
+                            Perfil
+                        </dt>
 
-                    <dd>
-                        @ViewBag.detallePerfil
-                    </dd>
+                        <dd>
+                            @ViewBag.detallePerfil
+                        </dd>
 
-                    <dt>
-                        Carga
-                    </dt>
+                        <dt>
+                            Carga
+                        </dt>
 
-                    <dd>
-                        @ViewBag.detalleCarga
-                    </dd>
+                        <dd>
+                            @ViewBag.detalleCarga
+                        </dd>
+
+                        <dt>
+                            Precio
+                        </dt>
+
+                        <dd>
+                            $@ViewBag.detallePrecio
+                        </dd>
+
+                        <dt>
+                            Marca
+                        </dt>
+
+                        <dd>
+                            @ViewBag.detalleMarca
+                        </dd>
+                    </div>
+                    <div class="col text-left">
+                        <dt>
+                            Imagen
+                        </dt>
+
+                        <dd>
+                            <img style="margin:14px 0px;" class="border" src="~/Imagenes/llantas/@ViewBag.detalleImg" width="300" />
+                        </dd>
+                    </div>
                 </div>
-                <div class="col text-left">
-                    <dt>
-                        Imagen
-                    </dt>
-
-                    <dd>
-                        <img style="margin:14px 0px;" class="border" src="~/Imagenes/llantas/@ViewBag.detalleImg" width="165" />
-                    </dd>
-                </div>
-                <div class="col text-left">
-                    <dt>
-                        Precio
-                    </dt>
-
-                    <dd>
-                        $@ViewBag.detallePrecio
-                    </dd>
-
-                    <dt>
-                        Marca
-                    </dt>
-
-                    <dd>
-                        @ViewBag.detalleMarca
-                    </dd>
-
-                </div>
-            </div>
-        </dl>
+            </dl>
+            <br/>
+            <button class="btn boton" onclick="regresar()">Regresar</button>
+        </center>
     </div>
 </main>
+
+<script type="text/javascript">
+    //Regresar al catálogo
+    function regresar() {
+        location.href = '@Url.Action("catalogo", "Home")';
+    }
+</script>

@@ -94,14 +94,13 @@ body, html {
 }
 
 .boton {
-    color: white!important;
-    background-color: rgb(255,76,1)!important;
+    color: white !important;
+    background-color: rgb(255,76,1) !important;
 }
 
-.boton:hover
-{
-    color: white!important;
-}
+    .boton:hover {
+        color: white !important;
+    }
 
 footer {
     border-top-width: 1px;

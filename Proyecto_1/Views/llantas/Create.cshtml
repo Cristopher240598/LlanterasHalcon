@@ -47,6 +47,12 @@
                     @Html.EditorFor(model => model.perfil, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.perfil, "", new { @class = "text-danger" })
                 </div>
+
+                <div class="form-group text-left">
+                    <label>Stock:</label>
+                    @Html.EditorFor(model => model.stock, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })
+                </div>
             </div>
 
             <div class="col">
@@ -58,18 +64,12 @@
                 </div>
 
                 <div class="form-group text-left">
-                    <label>Stock:</label>
-                    @Html.EditorFor(model => model.stock, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.stock, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group text-left">
                     <label>Imagen:</label>
                     <input type="file" id="imagenLlanta" name="imagenLlanta" accept="image/*" />
                     @Html.ValidationMessage("mensajeImagen", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    <img class="border" src="" width="165" id="imagenSalida" />
+                    <img class="border" src="" width="335" id="imagenSalida" />
                 </div>
 
             </div>
@@ -94,8 +94,14 @@
                 </div>
 
                 <div class="form-group text-left">
+                    <label>Categoría:</label>
+                    @Html.DropDownList("id_categoria", null, new { @class = "form-control", id = "id_categoria" })
+                    @Html.ValidationMessageFor(model => model.id_subcategoria, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group text-left">
                     <label>Subcategoría:</label>
-                    @Html.DropDownList("id_subcategoria", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("id_subcategoria", null, new { @class = "form-control", id = "id_subcategoria" })
                     @Html.ValidationMessageFor(model => model.id_subcategoria, "", new { @class = "text-danger" })
                 </div>
 
@@ -111,6 +117,35 @@
         </div>
     </div>
 }
+
+
+<script>
+    var cboCategorias = document.getElementById("id_categoria");
+    cboCategorias.addEventListener("change", Refresh);
+    Refresh();
+    function Refresh()
+    {
+        fetch("@Url.Content("~/llantas/obtenerSubcategoriasList")" + "?categoriaID=" + cboCategorias.value)
+            .then(function (result) {
+                if (result.ok)
+                {
+                    return result.json();
+                }
+            })
+            .then(function (data) {
+                console.log(data);
+                cboSub = document.getElementById("id_subcategoria");
+                cboSub.innerHTML = "";
+                data.forEach(function (element) {
+                    let opt = document.createElement("option");
+                    opt.appendChild(document.createTextNode(element.Text));
+                    opt.value = element.Value;
+                    cboSub.appendChild(opt);
+                })
+            })
+    }
+</script>
+
 
 <div>
     @Html.ActionLink("Ver llantas", "Index", new { id = "" }, new { @class = "link-item" })

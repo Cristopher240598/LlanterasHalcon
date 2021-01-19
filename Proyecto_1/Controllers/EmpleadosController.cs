@@ -155,7 +155,7 @@ namespace Proyecto_1.Controllers
         [HttpPost]
         public JsonResult validarCorreoUnico(String correoElectronico)
         {
-            //Debug.WriteLine("-------------------------------------------------------------------------------------------Entro");
+            //Debug.WriteLine("-----Entro");
             using (contextLlantera db = new contextLlantera())
             {
                 try
