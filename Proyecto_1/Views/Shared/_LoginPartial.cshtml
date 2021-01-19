@@ -5,13 +5,12 @@
     {
         @Html.AntiForgeryToken()
         string name = @Session["name"].ToString();
-
         <li class="nav-item dropdown" style="margin-right:5px;">
             @*@Html.ActionLink("Hola " + name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link js-scroll-trigger opciones" })*@
             <a class="dropdown-toggle nav-link opciones" role="button" aria-expanded="false" data-toggle="dropdown">Hola @name<span class="caret"></span></a>
             <div class="dropdown-menu" role="menu">
                 @Html.ActionLink("Mis Pedidos", "Index", "Pedidos", null, new { id = "add", @class = "dropdown-item opciones" })
-                @Html.ActionLink("Editar perfil", "Index", "Pedidos", null, new { id = "add", @class = "dropdown-item opciones" })
+                @Html.ActionLink("Editar perfil", "Edit", "Clientes", null, new { @class = "dropdown-item opciones" })
             </div>
         </li>
         <li class="nav-item">

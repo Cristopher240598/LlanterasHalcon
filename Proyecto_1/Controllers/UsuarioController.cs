@@ -33,6 +33,7 @@ namespace Proyecto_1.Controllers
                         string[] nombres = empleado.nombre.ToString().Split(' ');
                         Session["name"] = nombres[0];
                         Session["usr"] = empleado.nombre;
+                        Session["idUsuarioActual"] = empleado.Id;
                         rol = empleado.id_rol;
                     }
                 }
