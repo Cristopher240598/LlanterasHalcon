@@ -10,7 +10,9 @@ using Proyecto_1.Models;
 using Microsoft.AspNet.Identity;
 using System.Text;
 using WebGrease.Css.Extensions;
-//
+using System.Web.Security;
+using System.Diagnostics;
+
 namespace Proyecto_1.Controllers
 {
     public class ClientesController : Controller
@@ -129,6 +131,7 @@ namespace Proyecto_1.Controllers
                     string[] nombres = cliente.nombre.ToString().Split(' ');
                     Session["name"] = nombres[0];
                     Session["usr"] = cliente.nombre;
+                    Session["idUsuarioActual"] = cliente.Id;
                     if (Session["CrearOrden"] != null)
                     {
                         if (Session["CrearOrden"].Equals("pend"))
@@ -154,12 +157,12 @@ namespace Proyecto_1.Controllers
             return View(cliente);
         }
 
-        private bool validarPago(string nombre, string calle, string colonia, string estado, string tarjetaCredito, int mes, int anio, int cvv)
+        private bool validarPago(string nombre, string calle, string colonia, string estado, string tarjetaCredito, int? mes, int? anio, int? cvv)
         {
             return true;
         }
 
-        private bool comprobarTarjeta(string tarjetaCredito, string tipoTarjeta, int mes, int anio, int cvv)
+        private bool comprobarTarjeta(string tarjetaCredito, string tipoTarjeta, int? mes, int? anio, int? cvv)
         {
             //Método luhn
             bool retorna = validarTarjeta(tarjetaCredito);
@@ -183,12 +186,12 @@ namespace Proyecto_1.Controllers
                         }
                         else
                         {
-                            retorna = false;
+                            return false;
                         }
                     }
                 }
 
-                DateTime hoy = new DateTime();
+                DateTime hoy = DateTime.Now;
                 if (anio >= hoy.Year)
                 {
                     if (anio == hoy.Year)
@@ -199,7 +202,7 @@ namespace Proyecto_1.Controllers
                         }
                         else
                         {
-                            retorna = false;
+                            return false;
                         }
                     }
                     else
@@ -209,7 +212,7 @@ namespace Proyecto_1.Controllers
                 }
                 else
                 {
-                    retorna = false;
+                    return false;
                 }
             }
             return retorna;
@@ -252,8 +255,6 @@ namespace Proyecto_1.Controllers
 
             }
             return (sum % 10) == 0;
-
-            //return true;
         }
 
         public ActionResult mostrarMensajeInvalida()
@@ -268,12 +269,15 @@ namespace Proyecto_1.Controllers
         }
 
         // GET: Clientes/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit()
         {
-            if (id == null)
+            string cadId = Session["idUsuarioActual"].ToString();
+            if (cadId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //Debug.WriteLine("--------------Entro" + cadId);
+            int id = int.Parse(cadId);
             usuarios usuarios = db.usuarios.Find(id);
             if (usuarios == null)
             {
@@ -288,13 +292,71 @@ namespace Proyecto_1.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,nombre,apellidoPaterno,apellidoMaterno,telefono,correoElectronico,contrasenia,estado,municipio,colonia,calle,numeroCasa,cp,tarjetaCredito,tipoTarjeta,anio,mes,cvv,id_rol")] usuarios usuarios)
+        public ActionResult Edit([Bind(Include = "Id,nombre,apellidoPaterno,apellidoMaterno,telefono,correoElectronico,estado,municipio,colonia,calle,numeroCasa,cp,tarjetaCredito,tipoTarjeta,anio,mes,cvv")] usuarios usuarios)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(usuarios).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (usuarios.tarjetaCredito == null || usuarios.tarjetaCredito.Equals(""))
+                {
+                    ModelState.AddModelError("mensajeTarjetaCreditoE", "Ingrese el número de tarjeta");
+                    return View(usuarios);
+                }
+                if (usuarios.tipoTarjeta == null || usuarios.tipoTarjeta.Equals(""))
+                {
+                    ModelState.AddModelError("mensajeTipoTarjetaE", "Seleccione un tipo de tarjeta");
+                    return View(usuarios);
+                }
+                if (usuarios.anio == null)
+                {
+                    ModelState.AddModelError("mensajeAnioTarjetaE", "Ingrese el año de la tarjeta");
+                    return View(usuarios);
+                }
+                if (usuarios.mes == null)
+                {
+                    ModelState.AddModelError("mensajeMesTarjetaE", "Ingrese el mes de la tarjeta");
+                    return View(usuarios);
+                }
+                if (usuarios.cvv == null)
+                {
+                    ModelState.AddModelError("mensajeCVVTarjetaE", "Ingrese el CVV de la tarjeta");
+                    return View(usuarios);
+                }
+                if (comprobarTarjeta(usuarios.tarjetaCredito, usuarios.tipoTarjeta, usuarios.mes, usuarios.anio, usuarios.cvv))
+                {
+                    if (validarPago(usuarios.nombre, usuarios.calle, usuarios.colonia, usuarios.estado, usuarios.tarjetaCredito, usuarios.mes, usuarios.anio, usuarios.cvv))
+                    {
+                        int id = usuarios.Id;
+                        var usuario = db.usuarios.Find(id);
+                        usuario.nombre = usuarios.nombre;
+                        usuario.apellidoPaterno = usuarios.apellidoPaterno;
+                        usuario.apellidoMaterno = usuarios.apellidoMaterno;
+                        usuario.telefono = usuarios.telefono;
+                        usuario.estado = usuarios.estado;
+                        usuario.municipio = usuarios.municipio;
+                        usuario.colonia = usuarios.colonia;
+                        usuario.calle = usuarios.calle;
+                        usuario.numeroCasa = usuarios.numeroCasa;
+                        usuario.cp = usuarios.cp;
+                        usuario.tarjetaCredito = usuarios.tarjetaCredito;
+                        usuario.tipoTarjeta = usuarios.tipoTarjeta;
+                        usuario.anio = usuarios.anio;
+                        usuario.mes = usuarios.mes;
+                        usuario.cvv = usuarios.cvv;
+                        db.SaveChanges();
+                        ModelState.AddModelError("datosAct", "Datos actualizados");
+                        return View(usuarios);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("mensajeTarjetaCreditoEE", "Revise los datos de la tarjeta de crédito");
+                        return View(usuarios);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("mensajeTarjetaCreditoEE", "Revise los datos de la tarjeta de crédito");
+                    return View(usuarios);
+                }
             }
             ViewBag.id_rol = new SelectList(db.roles, "Id", "nombre", usuarios.id_rol);
             return View(usuarios);
